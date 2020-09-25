@@ -11,9 +11,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'nominal',
-        'jenis',
-        'waktu',
-        'status',
+        'jenis'
     ];
 
     /**
