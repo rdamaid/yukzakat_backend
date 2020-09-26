@@ -10,6 +10,7 @@ class ReturnGoodWay
         "forbidden" => 403,
         "created" => 201,
         "bad request" => 400,
+        "unauthorized" => 401,
         "error database" => 400,
         "unknown" => 500,
         "conflict" => 409
