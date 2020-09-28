@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,19 +34,21 @@ Route::prefix('v1')->group(function(){
             Route::get('logout', [AuthController::class, 'logout']);
         });
     });
+
+    Route::group(['middleware' => 'auth:api'], function() {
         
-    Route::prefix('users')->group(function(){
-        Route::get('/show', [UserController::class, 'index']);
-        // Route::get('/show/{id?}', [UserController::class, 'show']);
-        // Route::put('/update/{id?}', [UserController::class,'update']);
-        // Route::delete('/delete/{id?}', [UserController::class,'destroy']);
+        Route::prefix('users')->group(function(){
+            Route::get('/show', [UserController::class, 'index']);
+        });
+
+        Route::prefix('transactions')->group(function(){
+            Route::get('/show', [TransactionController::class, 'index']);
+            Route::get('/show/{id?}', [TransactionController::class, 'show']);
+            Route::post('/create', [TransactionController::class, 'store']);
+            Route::put('/update/{id?}', [TransactionController::class, 'update']);
+            Route::delete('/delete/{id?}', [TransactionController::class, 'destroy']);
+        });
+
     });
 
-    Route::prefix('transactions')->group(function(){
-        Route::get('/show', [TransactionController::class, 'index']);
-        Route::get('/show/{id?}', [TransactionController::class, 'show']);
-        Route::post('/create', [TransactionController::class, 'store']);
-        Route::put('/update/{id?}', [TransactionController::class, 'update']);
-        Route::delete('/delete/{id?}', [TransactionController::class, 'destroy']);
-    });
 });

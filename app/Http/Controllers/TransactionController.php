@@ -39,6 +39,8 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
     public function store(Request $request)
     {
         try {
@@ -55,17 +57,14 @@ class TransactionController extends Controller
                 );
             }
     
-            $transaction = new Transaction();
-            $transaction->nominal = $request->input('nominal');
-            $transaction->jenis = $request->input('jenis');
-            $transaction->save();
+            auth()->user()->transactions()->create([
+                'nominal' => $request->input('nominal'),
+                'jenis' => $request->input('jenis')
+            ]);
 
-            return ReturnGoodWay::successReturn(
-                $transaction,
-                $this->modelName,
-                $this->modelName . " successfully created",
-                'created'
-            );
+            return response()->json([
+                'message' => 'success'
+            ], 201);
         } catch (Exception $err) {
             return $err;
         }
@@ -89,7 +88,7 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         try {
             $validator = Validator::make($request->all(),[
@@ -105,7 +104,8 @@ class TransactionController extends Controller
                 );
             }
     
-            $transaction = Transaction::whereId($request->input('id'))->update([
+            $transaction = Transaction::find($id);
+            $transaction->update([
                 'nominal' => $request->input('nominal'),
                 'jenis' => $request->input('jenis'),
             ]);
@@ -136,7 +136,7 @@ class TransactionController extends Controller
             return ReturnGoodWay::successReturn(
                 $transaction,
                 $this->modelName,
-                'Delete transac$transaction with id ' . $id,
+                'Delete transaction with id ' . $id,
                 'success'
             );
         } catch (Exception $err) {

@@ -82,18 +82,18 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        // try {
-        //     $user = User::whereId($id)->first();
+        try {
+            $user = User::find($id)->first();
 
-        //     return ReturnGoodWay::successReturn(
-        //         $user,
-        //         $this->modelName,
-        //         'Show user with id ' . $id,
-        //         'success'
-        //     );
-        // } catch (Exception $err) {
-        //     return $err;
-        // }
+            return ReturnGoodWay::successReturn(
+                $user,
+                $this->modelName,
+                'Show user with id ' . $id,
+                'success'
+            );
+        } catch (Exception $err) {
+            return $err;
+        }
     }
 
     /**

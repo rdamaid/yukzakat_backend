@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AdditionalHelper\ReturnGoodWay;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -24,12 +25,21 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'name' => 'required|string',
             'no_telepon' => 'required|max:15',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string',
+            'password' => 'required|string'
         ]);
+
+        if($validator->fails()) {
+
+            return ReturnGoodWay::failedReturn(
+                'Please fill all requirment',
+                'bad request'
+            );
+        }
+
         $user = new User([
             'name' => $request->name,
             'no_telepon' => $request->no_telepon,
@@ -37,6 +47,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password)
         ]);
         $user->save();
+
         return ReturnGoodWay::successReturn(
             $user,
             $this->modelName,
@@ -58,11 +69,20 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try{
-            $request->validate([
+            $validator = Validator::make($request->all(),[
                 'email' => 'required|string|email',
                 'password' => 'required|string',
                 'remember_me' => 'boolean'
             ]);
+
+            if($validator->fails()) {
+
+                return ReturnGoodWay::failedReturn(
+                    'Please fill all requirment',
+                    'bad request'
+                );
+            }
+
             $credentials = request(['email', 'password']);
             
             if(!Auth::attempt($credentials))
