@@ -9,11 +9,11 @@
 
 ## How to Use
 
-git clone https://github.com/rdamaid/yukzakat_backend
-create .env and change DB_DATABASE =
-php artisan key:generate
-php artisan migrate
-php artisan serve
+1. git clone https://github.com/rdamaid/yukzakat_backend
+2. create .env and change DB_DATABASE =
+3. php artisan key:generate
+4. php artisan migrate
+5. php artisan serve
 
 
 ## Learning Laravel
