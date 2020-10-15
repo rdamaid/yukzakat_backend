@@ -27,7 +27,7 @@ class ReturnGoodWay
         if (!is_null($messages)) {
             $messages = str_replace("_", " ", $messages);
             return response()->json([
-                'messages' => $messages,
+                'message' => $messages,
                 strtolower($modelName) => $data
             ], self::$http_response_code[$mode]);
         } else {
@@ -46,7 +46,7 @@ class ReturnGoodWay
     ) {
         return response()->json([
             'error' => [
-                'messages' => $messages,
+                'message' => $messages,
             ]
         ], self::$http_response_code[$mode]);
     }
@@ -62,7 +62,7 @@ class ReturnGoodWay
         $messages = str_replace("_", " ", $messages);
         if (!is_null($messages)) {
             return response()->json([
-                'messages' => $messages,
+                'message' => $messages,
                 'data' => $data
             ], self::$http_response_code[$mode]);
         } else {

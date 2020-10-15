@@ -39,14 +39,18 @@ Route::prefix('v1')->group(function(){
         
         Route::prefix('users')->group(function(){
             Route::get('/show', [UserController::class, 'index']);
+            Route::get('/show/{id}', [UserController::class, 'show']);
+            Route::post('/create', [UserController::class, 'store']);
+            Route::put('/update/{id}', [UserController::class, 'update']);
+            Route::delete('/delete/{id}', [UserController::class, 'destroy']);
         });
 
-        Route::prefix('transactions')->group(function(){
+        Route::prefix('transactions')->group(function(){    
             Route::get('/show', [TransactionController::class, 'index']);
-            Route::get('/show/{id?}', [TransactionController::class, 'show']);
+            Route::get('/show/{id}', [TransactionController::class, 'show']);
             Route::post('/create', [TransactionController::class, 'store']);
-            Route::put('/update/{id?}', [TransactionController::class, 'update']);
-            Route::delete('/delete/{id?}', [TransactionController::class, 'destroy']);
+            Route::put('/update/{id}', [TransactionController::class, 'update']);
+            Route::delete('/delete/{id}', [TransactionController::class, 'destroy']);
         });
 
     });

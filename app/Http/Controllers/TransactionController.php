@@ -65,6 +65,7 @@ class TransactionController extends Controller
             return response()->json([
                 'message' => 'success'
             ], 201);
+
         } catch (Exception $err) {
             return $err;
         }
@@ -76,9 +77,27 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show($id)
     {
-        //
+        try {
+            $transaction = Transaction::find($id);
+            if(!$transaction){
+                return ReturnGoodWay::failedReturn(
+                    'transaction not found',
+                    'bad request'
+                );
+            } else {
+                return ReturnGoodWay::successReturn(
+                    $transaction,
+                    $this->modelName,
+                    'Show trasnaction with id ' . $id,
+                    'success'
+                );
+            }
+
+        } catch (Exception $err) {
+            return $err;
+        }
     }
 
     /**
@@ -110,12 +129,21 @@ class TransactionController extends Controller
                 'jenis' => $request->input('jenis'),
             ]);
 
-            return ReturnGoodWay::successReturn(
-                $transaction,
-                $this->modelName,
-                $this->modelName . " successfully created",
-                'created'
-            );
+            if ($transaction){
+                return ReturnGoodWay::successReturn(
+                    $transaction,
+                    $this->modelName,
+                    $this->modelName . " successfully created",
+                    'created'
+                );
+            } else {
+                return ReturnGoodWay::failedReturn(
+                    'failed',
+                    'bad request'
+                );
+            }
+
+
         } catch (Exception $err) {
             return $err;
         }

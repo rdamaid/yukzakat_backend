@@ -35,7 +35,7 @@ class AuthController extends Controller
         if($validator->fails()) {
 
             return ReturnGoodWay::failedReturn(
-                'Please fill all requirment',
+                'please fill all requirment or check your email is already used or not',
                 'bad request'
             );
         }
@@ -48,12 +48,19 @@ class AuthController extends Controller
         ]);
         $user->save();
 
-        return ReturnGoodWay::successReturn(
-            $user,
-            $this->modelName,
-            'User successfully created',
-            'success'
-        );
+        if ($user) {
+            return ReturnGoodWay::successReturn(
+                $user,
+                $this->modelName,
+                'User successfully created',
+                'success'
+            );
+        } else {
+            return ReturnGoodWay::failedReturn(
+                'failed',
+                'bad request'
+            );
+        }
     }
   
     /**
@@ -78,7 +85,7 @@ class AuthController extends Controller
             if($validator->fails()) {
 
                 return ReturnGoodWay::failedReturn(
-                    'Please fill all requirment',
+                    'please fill all requirment',
                     'bad request'
                 );
             }
@@ -87,7 +94,7 @@ class AuthController extends Controller
             
             if(!Auth::attempt($credentials))
                 return ReturnGoodWay::failedReturn(
-                    'Unauthorized',
+                    'please check your email or password',
                     'unauthorized'
                 );
             
@@ -134,6 +141,12 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
+        if (!$request){
+            return ReturnGoodWay::failedReturn(
+                'unauthorized',
+                'unauthorized'
+            );
+        }
         return response()->json($request->user());
     }
 }
