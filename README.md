@@ -7,15 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+Just a reminder: This Project using Laravel version 8.x
+
 ## How to Use
 
-1. composer install
-2. git clone https://github.com/rdamaid/yukzakat_backend
-3. create .env and change DB_DATABASE =
-4. php artisan key:generate
-5. php artisan migrate
-6. php artisan serve
-
+1. git clone https://github.com/rdamaid/yukzakat_backend
+2. run composer install
+3. run npm install
+4. create .env and change DB_DATABASE = to your blank database
+5. php artisan key:generate
+6. php artisan migrate
+7. php artisan serve
 
 ## Learning Laravel
 
