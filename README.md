@@ -12,13 +12,15 @@ Just a reminder: This Project using Laravel version 8.x
 ## How to Use
 
 1. git clone https://github.com/rdamaid/yukzakat_backend
-2. run composer install
-3. run npm install
+2. run ==> composer install
+3. run ==> npm install
 4. create .env and change DB_DATABASE = to your blank database
-5. php artisan key:generate
-6. php artisan migrate
-7. php artisan serve
-8. npm run dev
+5. run ==> php artisan key:generate
+6. run ==> php artisan migrate
+7. run ==> npm run dev
+8. run ==> npm run watch (optional)
+8. run ==> php artisan serve
+
 
 ## Learning Laravel
 
