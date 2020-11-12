@@ -13,9 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function () {
+Route::get('/', function () {
     return view('welcome');
-})->where('any','.*');
+});
+
+Route::get('/bayar-zakat', function () {
+    return view('bayar-zakat');
+});
+
+Route::get('/kalkulasi-zakat', function () {
+    return view('kalkulasi-zakat');
+});
+
+Route::get('/rekening', function () {
+    return view('rekening');
+});
 
 Auth::routes();
 
