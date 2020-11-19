@@ -12,25 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/bayar-zakat', function () {
-    return view('bayar-zakat');
-});
-
-Route::get('/kalkulasi-zakat', function () {
-    return view('kalkulasi-zakat');
-});
-
-Route::get('/rekening', function () {
-    return view('rekening');
-});
-
 Auth::routes();
 
+Route::get('/', 'SiteController@home')->name('home');
+Route::get('/bayar-zakat', 'SiteController@bayarzakat')->name('bayar-zakat');
+Route::get('/kalkulasi-zakat', 'SiteController@kalkulasizakat')->name('kalkulasi-zakat');
+Route::get('/rekening', 'SiteController@rekening')->name('rekening');
+Route::get('/profil', 'SiteController@profil')->name('profil');
+Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
+
+
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('welcome');
+    return view('sites.dashboard.index');
 })->name('dashboard');

@@ -2,6 +2,7 @@ body {
     font-family: Lato;
     background-color: #eff0f5;
 }
+
 /* Navbar */
 .navbar {
     position: relative;
@@ -84,6 +85,7 @@ body {
     border: none;
     color: #ffffff;
 }
+
 /* END OF UTILITY */
 
 .jumbotron {
@@ -111,11 +113,9 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(
-        to top,
-        rgba(31, 155, 83, 0.3),
-        rgba(31, 155, 83, 0.3)
-    );
+    background-image: linear-gradient(to top,
+            rgba(31, 155, 83, 0.3),
+            rgba(31, 155, 83, 0.3));
     position: absolute;
     bottom: 0;
 }
@@ -249,7 +249,7 @@ a {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
     content: ">" !important;
     color: #ffffff;
 }
@@ -408,6 +408,11 @@ table th {
     padding-top: 5px;
     color: #000000;
 }
+
+.keluar-profile {
+    margin-top: 100%;
+}
+
 /* END OF PROFIL */
 
 /* Desktop Version */
@@ -427,18 +432,20 @@ table th {
     .logo {
         max-width: 100px;
     }
+
     .navbar-brand,
     .nav-link {
         color: #ffffff !important;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     }
+
     .nav-link {
         text-transform: uppercase;
         margin-right: 20px;
         white-space: nowrap;
     }
 
-    .dropdown:hover > .dropdown-menu {
+    .dropdown:hover>.dropdown-menu {
         display: block;
     }
 
@@ -466,7 +473,7 @@ table th {
         background-color: #44bf78;
     }
 
-    .navbarDropdownMenuLink > .active {
+    .navbarDropdownMenuLink>.active {
         border-bottom: transparent;
         padding-left: 1000px;
     }
@@ -481,20 +488,20 @@ table th {
         margin-bottom: -8px;
     }
 
-    .navbar-nav > .active {
+    .navbar-nav>.active {
         border-bottom: 3px solid #27ae60;
         width: 50% !important;
         padding-bottom: 5px;
     }
 
-    .navbar-nav li > .active {
+    .navbar-nav li>.active {
         border-bottom: 3px solid #27ae60;
         width: 75% !important;
 
         padding-bottom: 5px;
     }
 
-    .nav-item > .active {
+    .nav-item>.active {
         border-bottom: 3px solid #27ae60;
         width: 50% !important;
         padding-bottom: 5px;
