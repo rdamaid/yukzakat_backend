@@ -145,6 +145,15 @@
                 <br />
                 Pastikan harta anda sudah melebihi nishab (85 gram emas)
               </p>
+              <form method="post" action="{{route('logout')}}">
+                @csrf
+                <button
+                  type="submit"
+                  class="btn btn-block btn-primary tombol"
+                >
+                  DAFTAR
+                </button>
+              </form>
             </div>
             <div class="col-lg">
               <a href="/bayar-zakat">

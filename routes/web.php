@@ -32,5 +32,5 @@ Route::get('/rekening', function () {
 Auth::routes();
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('welcome');
 })->name('dashboard');
