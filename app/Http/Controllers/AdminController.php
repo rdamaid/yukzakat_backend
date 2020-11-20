@@ -16,4 +16,9 @@ class AdminController extends Controller
     {
         return view('admin.transaksi');
     }
+
+    public function admin()
+    {
+        return redirect('/admin/dashboard');
+    }
 }
