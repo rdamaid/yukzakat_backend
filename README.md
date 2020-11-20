@@ -13,13 +13,11 @@ Just a reminder: This Project using Laravel version 8.x
 
 1. git clone https://github.com/rdamaid/yukzakat_backend
 2. run ==> composer install
-3. run ==> npm install
-4. create .env and change DB_DATABASE = to your blank database
-5. run ==> php artisan key:generate
-6. run ==> php artisan migrate
-7. run ==> php artisan db:seed
-8. run ==> php artisan serve
-
+3. create .env and change DB_DATABASE = to your blank database
+4. run ==> php artisan key:generate
+5. run ==> php artisan migrate
+6. run ==> php artisan db:seed
+7. run ==> php artisan serve
 
 ## Learning Laravel
 
