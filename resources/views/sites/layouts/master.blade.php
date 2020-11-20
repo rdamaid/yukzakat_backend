@@ -23,7 +23,7 @@
 
 <body>
     <!-- HEADER -->
-    @include('sites.layouts.includes._header')
+    @include('sites.layouts.includes._navbar')
     <!-- END OF HEADER -->
 
     <!-- Jumbotron Card -->

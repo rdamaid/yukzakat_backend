@@ -12,11 +12,14 @@
                             <img src="{{ asset('img/sites/default.jpg')}}" class="profile-img" alt="profil" />
                             <h4>Ustad Bajigur</h4>
                         </center>
-                        <a href="/template/pages/sites/profil.html" class="#">
+                        <a href="{{route('profil')}}" class="{{ (request()->is('profil/*')) ? 'active' : '' }}">
                             <i class="fas fa-user"></i><span>Profil</span>
                         </a>
-                        <a href="/template/pages/sites/transaksi.html" class="active">
+                        <a href="/transaksi" class="{{ (request()->is('transaksi')) ? 'active' : '#' }}">
                             <i class="fas fa-money-bill"></i><span>Transaksi</span>
+                        </a>
+                        <a href="{{route('logout')}}" class="keluar-profile">
+                            <i class="fas fa-gear"></i><span>Keluar</span>
                         </a>
                     </div>
                     <!-- END SIDEBAR -->

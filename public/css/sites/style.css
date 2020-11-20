@@ -447,6 +447,9 @@ table th {
 
     .dropdown:hover>.dropdown-menu {
         display: block;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
 
     .dropdown a i {
@@ -455,7 +458,7 @@ table th {
         transition: 300ms ease all;
     }
 
-    .dropdown a:hover i {
+    .dropdown a:hover i:not(.user) {
         transform: rotate(-90deg);
         transition: 300ms ease all;
     }
@@ -490,7 +493,7 @@ table th {
 
     .navbar-nav>.active {
         border-bottom: 3px solid #27ae60;
-        width: 50% !important;
+        width: 70% !important;
         padding-bottom: 5px;
     }
 

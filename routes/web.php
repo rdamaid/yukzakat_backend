@@ -14,14 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+// Landing
 Route::get('/', 'SiteController@home')->name('home');
 Route::get('/bayar-zakat', 'SiteController@bayarzakat')->name('bayar-zakat');
 Route::get('/kalkulasi-zakat', 'SiteController@kalkulasizakat')->name('kalkulasi-zakat');
 Route::get('/rekening', 'SiteController@rekening')->name('rekening');
-Route::get('/profil', 'SiteController@profil')->name('profil');
+
+// Dashboard User
+Route::get('/profil/id', 'SiteController@profil')->name('profil');
+Route::get('/profil/id/edit', 'SiteController@editprofil')->name('edit-profil');
 Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
 
-
+// Dashboard Admin
+Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admindashboard');
+Route::get('/admin/transaksi', 'AdminController@transaksi')->name('admintransaksi');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('sites.dashboard.index');

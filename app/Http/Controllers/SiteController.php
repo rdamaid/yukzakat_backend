@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
+    // Landing User
     public function home()
     {
         return view('sites.landingpage.home');
@@ -27,6 +28,7 @@ class SiteController extends Controller
         return view('sites.landingpage.rekening');
     }
 
+    // Dashboard User View
     public function profil()
     {
         return view('sites.dashboard.index');
@@ -36,4 +38,6 @@ class SiteController extends Controller
     {
         return view('sites.dashboard.transaksi');
     }
+
+
 }
