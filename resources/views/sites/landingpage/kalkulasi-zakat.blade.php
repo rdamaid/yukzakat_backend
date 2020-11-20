@@ -11,7 +11,7 @@
                       <div class="input-title">
                           <label for="hasil-hitung-zakat"> Jenis Zakat </label>
                       </div>
-                      <select id="jenis-zakat" name="rate" class="form-control">
+                      <select id="jenis-zakat" name="rate" class="form-control" onChange="change(this);">
                         <option disabled value="Pilih Jenis Zakat" selected>Pilih Jenis Zakat</option>
                         <option value="0.025">Zakat Maal</option>
                         <option disabled value="0">Zakat Penghasilan</option>
@@ -30,31 +30,28 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Rp</div>
                             </div>
-                            <input type="text" min="0" class="form-control" id="jumlah-harta" placeholder="0" />
+                            <input type="number" min="0" class="form-control" id="jumlah-harta" placeholder="0" />
                         </div>
                         <div class="subtitle">
-                            <label class="sublabel" for="jumlah-harta">
+                            <label id="sub-zakat-maal" class="sublabel" for="jumlah-harta" style="display: none">
                                 Pastikan jumlah harta anda melebihi nishab (85 gram emas).
-                                Standar harga emas yg digunakan untuk 1 gram nya adalah Rp800.000,-.
+                                Standar harga emas yang digunakan untuk 1 gramnya adalah Rp800.000.
                             </label>
                         </div>
 
                         <div class="input-title">
-                            <label for="hasil-hitung-zakat"> Hasl Kalkulasi </label>
+                            <label for="hasil-hitung-zakat"> Hasil Kalkulasi </label>
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Rp</div>
                             </div>
-                            <input type="text" min="0" class="form-control" id="hasil-hitung-zakat" placeholder="0" />
+                            <input type="text" min="0" class="form-control" id="hasil-hitung-zakat" placeholder="0" readonly="readonly"/>
                         </div>
-
-                        <!--
-                        <button type="submit" class="btn btn-block btn-primary tombol">
-                            Kalkulasi Zakat
-                        </button>
-                        -->
                     </form>
+                    <button id="button-lanjut-bayar" class="btn btn-block btn-primary tombol" style="display: none" onclick="copyAndRedirect()">
+                        Lanjut Ke Pembayaran
+                    </button>
                 </div>
             </div>
         </div>
@@ -63,6 +60,41 @@
 
 <!--Script Menghitung Zakat -->
 <script type="text/javascript">
+  // Copy hasil kalkulasi dan redirect ke halaman Pembayaran
+  function copyAndRedirect() {
+    var getHasilKalkulasi = document.getElementById("hasil-hitung-zakat");
+    getHasilKalkulasi.select();
+    getHasilKalkulasi.setSelectionRange(0,99999); // metode for mobile devices
+    document.execCommand("copy");
+
+    alert("Hasil kalkulasi telah dicopy: Rp" + getHasilKalkulasi.value); // kasih alert
+    window.location="/bayar-zakat"; // redirect ke halaman pembayaran
+  }
+
+  // Show Subtitle when Jenis Zakat selected
+  function change(obj) {
+    var selectBox = obj;
+    var selected = selectBox.options[selectBox.selectedIndex].text;
+    var subtitle = document.getElementById("sub-zakat-maal");
+    var button = document.getElementById("button-lanjut-bayar");
+
+    if (selected != "Pilih Jenis Zakat") {
+      subtitle.style.display = "block";
+      button.style.display = "block";
+    } else {
+      subtitle.style.display = "none"
+      button.style.display = "none";
+    }
+  }
+
+  var masukanInput = document.getElementById("jumlah-harta");
+  masukanInput.addEventListener('keyup', function(evt) {
+    //var jumlahInput = parseInt(this.value.replace(/[^,\d]/g, ''), 10);
+    //var jumlahInput = this.value;
+    masukanInput.value = jumlahInput.toLocaleString('id');
+  });
+
+  // get hasil kalkulasi ketika input dimasukan saat itu juga
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("jumlah-harta").addEventListener("input", calculator);
     document.getElementById("jenis-zakat").addEventListener("change", changeZakat);
