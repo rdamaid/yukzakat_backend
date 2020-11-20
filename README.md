@@ -17,8 +17,7 @@ Just a reminder: This Project using Laravel version 8.x
 4. create .env and change DB_DATABASE = to your blank database
 5. run ==> php artisan key:generate
 6. run ==> php artisan migrate
-7. run ==> npm run dev
-8. run ==> npm run watch (optional)
+7. run ==> php artisan db:seed
 8. run ==> php artisan serve
 
 
