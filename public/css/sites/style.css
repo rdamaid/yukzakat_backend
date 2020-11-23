@@ -384,8 +384,8 @@ a {
 
 .profile-pic {
     object-fit: cover;
-    width: 100px;
-    /* height: 100px; */
+    width: 150px;
+    height: 150px;
     border-radius: 100px;
     /* margin-left: -320px; */
 }
@@ -507,7 +507,6 @@ table th {
     .navbar-nav li>.active {
         border-bottom: 3px solid #27ae60;
         width: 75% !important;
-
         padding-bottom: 5px;
     }
 

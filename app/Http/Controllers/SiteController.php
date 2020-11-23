@@ -59,6 +59,8 @@ class SiteController extends Controller
             'email' => 'required',
             'no_telepon' => 'required',
             'alamat' => 'required',
+            'oldpassword' => 'required',
+            'password' => 'required|confirmed'
         ]);
         $users = User::find(Auth::user()->id);
         //buat upload gambar
@@ -73,6 +75,18 @@ class SiteController extends Controller
         $users->no_telepon = $request->input('no_telepon');
         $users->alamat = $request->input('alamat');
         $users->save(); //save all
+
+        // // PASSWORD
+        // $hashedPassword = Auth::user()->password;
+        // if (Hash::check($request->oldpassword, $hashedPassword)) {
+        //     $users = User::find(Auth::id());
+        //     $users->password = Hash::make($request->password);
+        //     $users->save();
+        //     Auth::logout();
+        //     return redirect()->route('login')->with('success', "Password sudah diganti!");
+        // } else {
+        //     return redirect()->back()->with('failed', "Password error");
+        // }
 
         return redirect('/profil')->with('success', 'Profil berhasil diupdate!');
     }

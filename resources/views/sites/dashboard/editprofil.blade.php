@@ -32,18 +32,19 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Nama</label>
+                                    
+                                    <h6 style="color: red">* <label for="name" style="color: black">Nama</label></h6>
                                         <input type="text" required class="form-control" id="name" name="name"
                                             value="{{$users->name}}" />
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="email">Email</label>
+                                        <h6 style="color: red">* <label for="email" style="color: black">Email</label></h6>
                                             <input type="email" required class="form-control" id="email" name="email"
                                                 value="{{$users->email}}" />
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="no_telepon">No. Telp</label>
+                                        <h6 style="color: red">* <label for="no_telepon" style="color: black">No. Telpon</label></h6>
                                             <input type="number" required class="form-control" id="no_telepon" name="no_telepon"
                                                 value="{{$users->no_telepon}}" />
                                         </div>

@@ -15,7 +15,7 @@
                     <a class="nav-link {{ (request()->is('/')) ? 'active' : '' }}" href="/">
                         Beranda
                     </a>
-                    <ul class="navbar-nav ml-auto ml-md-0">
+                    <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link {{ (request()->is('kalkulasi-zakat')) ? 'active' : '' }} {{ (request()->is('bayar-zakat')) ? 'active' : '' }}"
                                 href="{{route('kalkulasi-zakat')}}">
@@ -33,9 +33,9 @@
                     <a class="nav-link" href="/login">Masuk</a>
                     <a class="btn btn-primary tombol-nav" href="/register">Daftar</a>
                     @else
-                    <ul class="navbar-nav ml-auto ml-md-0">
+                    <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link pr-5 {{ (request()->is('profil/*')) ? 'active' : '' }} {{ (request()->is('transaksi')) ? 'active' : '' }}"
+                            <a class="nav-link {{ (request()->is('profil/*')) ? 'active' : '' }} {{ (request()->is('transaksi')) ? 'active' : '' }}"
                                 href="{{route('profil')}}">
                                 <i class="fas fa-user pr-1 user"></i>
                                 {{auth()->user()->name}}
