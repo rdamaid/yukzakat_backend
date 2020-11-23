@@ -14,41 +14,52 @@ class SiteController extends Controller
     // Landing User
     public function home()
     {
-        return view('sites.landingpage.home');
+        $title= 'Beranda | YukZakat';
+        return view('sites.landingpage.home', compact('title'));
     }
 
     public function bayarzakat()
     {
-        return view('sites.landingpage.bayar-zakat');
+        $title= 'Pembayaran Zakat | YukZakat';
+        return view('sites.landingpage.bayar-zakat', compact('title'));
     }
 
     public function kalkulasizakat()
     {
-        return view('sites.landingpage.kalkulasi-zakat');
+        $title= 'Kalkulasi Zakat | YukZakat';
+        return view('sites.landingpage.kalkulasi-zakat', compact('title'));
     }
 
     public function rekening()
     {
-        return view('sites.landingpage.rekening');
+        $title= 'Rekening | YukZakat';
+        return view('sites.landingpage.rekening', compact('title'));
     }
     
     // Dashboard User View
     public function transaksi()
     {
-        return view('sites.dashboard.transaksi');
+        $title= 'Transaksi | YukZakat';
+        return view('sites.dashboard.transaksi', compact('title'));
     }
 
     public function profil()
     {
         $users = Auth::user();
         // dd($users);
-        return view('sites.dashboard.index', compact('users'));
+        return view('sites.dashboard.index', [
+            'title' => 'Profil | YukZakat',
+            'users' => $users
+        ]);
     }
 
     public function editprofil(Request $request)
     {
         $users = Auth::user();
-        return view('sites.dashboard.editprofil', compact('users'));
+        return view('sites.dashboard.editprofil',  [
+            'title' => 'Edit Profil | YukZakat',
+            'users' => $users
+        ]);
     }
 
     public function saveprofil(Request $request)

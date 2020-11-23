@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/sites/style.css') }}" />
     <link rel="shortcut icon" href="{{ asset('img/sites/logo-ipb.png') }}" />
-    <title>Beranda</title>
+    <title>{{$title ?? ''}}</title>
 </head>
 
 <body>

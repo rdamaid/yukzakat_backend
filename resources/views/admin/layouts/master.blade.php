@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin Dashboard</title>
+    <title>{{$title ?? ''}}</title>
     <link rel="shortcut icon" href="{{ asset('img/sites/logo-ipb.png') }}" />
     <link href="{{ asset('css/admin/styles.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}" />

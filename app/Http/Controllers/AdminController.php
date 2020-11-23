@@ -9,12 +9,19 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.index');
+        return view('admin.index', [
+            'title' => 'Admin Dashboard | YukZakat',
+            
+        ]);
     }
 
     public function transaksi()
     {
-        return view('admin.transaksi');
+        $title= 'Beranda | YukZakat';
+        return view('admin.transaksi', [
+            'title' => 'Admin Transaksi | YukZakat',
+            
+        ]);
     }
 
     public function admin()
