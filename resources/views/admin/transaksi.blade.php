@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="card mb-4">
             <div class="card-header judul pt-4">
-                Daftar Semua Transaksi User
+                Daftar Transaksi User
             </div>
             <div class="card-body">
                 <div class="table-responsive">
