@@ -24,10 +24,10 @@
                                         <div class="form-group col-md-6">
                                             <center>
                                                 <img src="{{asset('img/user_img/'.$users->user_image)}}"
-                                                    class="profile-pic mt-1" alt="profil" />
+                                                    class="profile-pic mt-1" alt="profil" id="output"/>
                                             </center>
                                             <div class="sub-pic">
-                                                <a href="#">Ganti Gambar</a>
+                                                <input type="file" name="user_image" onchange="loadFile(event)">
                                             </div>
                                         </div>
                                     </div>
@@ -68,4 +68,14 @@
     </div>
 </div>
 <!-- END OF KONTENT -->
+
+<script>
+ var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
 @endsection
