@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Auth;
+Use Alert;
 
 class SiteController extends Controller
 {
@@ -73,7 +74,7 @@ class SiteController extends Controller
         $users->alamat = $request->input('alamat');
         $users->save(); //save all
 
-        return redirect('/profil')->with('sukses', 'Profil berhasil diupdate!');
+        return redirect('/profil')->with('success', 'Profil berhasil diupdate!');
     }
 
 

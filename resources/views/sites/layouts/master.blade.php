@@ -46,6 +46,10 @@
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/sites/bootstrap.min.js') }}"></script>
+
+    <!-- SWEETALERT -->
+    @include('sweetalert::alert')
+
 </body>
 
 </html>

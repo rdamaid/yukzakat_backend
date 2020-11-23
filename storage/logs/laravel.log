@@ -4374,3 +4374,24 @@ avigation-dropdown.blade.php) at C:\\Users\\M. Kamil Mistar\\Documents\\Project\
 #45 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\server.php(21): require_once('C:\\\\Users\\\\M. Kam...')
 #46 {main}
 "} 
+[2020-11-23 11:09:58] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:192)
+[stacktrace]
+#0 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(118): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(98): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(547): Illuminate\\Log\\LogManager->driver()
+#3 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(237): Illuminate\\Log\\LogManager->error('Class 'Laravel\\\\...', Array)
+#4 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(366): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(Error))
+#5 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(131): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(Error))
+#6 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 {main}
+"} 
+[2020-11-23 11:09:58] laravel.ERROR: Class 'Laravel\Fortify\Features' not found {"exception":"[object] (Error(code: 0): Class 'Laravel\\Fortify\\Features' not found at C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\config\\fortify.php:106)
+[stacktrace]
+#0 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(72): require()
+#1 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#2 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(230): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#3 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#4 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#5 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#6 {main}
+"} 
