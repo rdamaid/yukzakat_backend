@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <!-- REGISTER -->
-                <div class="card text-center">
+                <div class="card text-center" style="margin-top: -50px !important">
                     <div class="card-body">
                         <h2 class="card-title pb-2">DAFTAR</h2>
                         <form method="POST" action="{{ route('register') }}">

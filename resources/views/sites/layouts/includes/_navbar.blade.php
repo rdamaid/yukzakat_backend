@@ -2,7 +2,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a href="#">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('img/sites/logo.png') }}" alt="logo" class="logo" />
             </a>
             <a class="navbar-brand pl-3" href="/">YUKZAKAT</a>
