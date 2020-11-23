@@ -38,7 +38,7 @@
                             <a class="nav-link pr-5 {{ (request()->is('profil/*')) ? 'active' : '' }} {{ (request()->is('transaksi')) ? 'active' : '' }}"
                                 href="{{route('profil')}}">
                                 <i class="fas fa-user pr-1 user"></i>
-                                Ustad Bajigur
+                                {{auth()->user()->name}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{route('profil')}}">Profil</a>

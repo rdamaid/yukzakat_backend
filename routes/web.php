@@ -30,8 +30,10 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/rekening', 'SiteController@rekening')->name('rekening');
     
     // Dashboard User
-    Route::get('/profil/id', 'SiteController@profil')->name('profil');
-    Route::get('/profil/id/edit', 'SiteController@editprofil')->name('edit-profil');
+    Route::get('/profil', 'SiteController@profil')->name('profil');
+    Route::get('/profil/{id}/edit', 'SiteController@editprofil')->name('edit-profil');
+    Route::post('/profil/edit/save', 'SiteController@saveprofil')->name('save-profil');
+
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
 
 

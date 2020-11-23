@@ -1,0 +1,71 @@
+@extends('sites.layouts.master')
+@section('content')
+<!-- Konten Profil -->
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 mt-3">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <!-- SIDEBAR STRT -->
+                    @include('sites.layouts.includes._sidebar')
+                    <!-- END SIDEBAR -->
+                </div>
+                <div class="col-8">
+                    <div class="content">
+                        <div class="profil-title">
+                            <h1>Profil Saya</h1>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="list-profil">
+                                <form method="POST" action="{{ route('save-profil') }}"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-row justify-content-center">
+                                        <div class="form-group col-md-6">
+                                            <center>
+                                                <img src="{{asset('img/user_img/'.$users->user_image)}}"
+                                                    class="profile-pic mt-1" alt="profil" />
+                                            </center>
+                                            <div class="sub-pic">
+                                                <a href="#">Ganti Gambar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Nama</label>
+                                        <input type="text" required class="form-control" id="name" name="name"
+                                            value="{{$users->name}}" />
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="email">Email</label>
+                                            <input type="email" required class="form-control" id="email" name="email"
+                                                value="{{$users->email}}" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="no_telepon">No. Telp</label>
+                                            <input type="number" required class="form-control" id="no_telepon" name="no_telepon"
+                                                value="{{$users->no_telepon}}" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alamat">
+                                            Alamat
+                                        </label>
+                                        <textarea class="form-control" id="alamat" rows="3" name="alamat">{{$users->alamat}}
+                                        </textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-block">
+                                        SIMPAN
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF KONTENT -->
+@endsection

@@ -20,6 +20,8 @@ class adminseed extends Seeder
                 'email'           => 'admin@gmail.com',
                 'email_verified_at' => '2019-05-14 04:10:10',
                 'password'        => bcrypt("admin"),
+                'no_telepon' => '082283777098',
+                'alamat' => 'Jalan Bersama No. 114, Kelurahan Tembilahan, Kec. Tembilahan Hulu, Kabupaten Indragiri Hilir, Provinsi Riau',
                 'role' => 'admin',
             ]
         ]);
