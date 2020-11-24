@@ -12,7 +12,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Rp</div>
                             </div>
-                            <input type="text" class="form-control" id="jumlah-harta" placeholder="100.000" />
+                            <input type="text" class="form-control" id="jumlah-harta" placeholder="100000" />
                         </div>
                         <div class="subtitle">
                             <label class="sublabel" for="jumlah-harta">

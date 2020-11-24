@@ -93,13 +93,6 @@
     }
   }
 
-  var masukanInput = document.getElementById("jumlah-harta");
-  masukanInput.addEventListener('keyup', function(evt) {
-    //var jumlahInput = parseInt(this.value.replace(/[^,\d]/g, ''), 10);
-    //var jumlahInput = this.value;
-    masukanInput.value = jumlahInput.toLocaleString('id');
-  });
-
   // get hasil kalkulasi ketika input dimasukan saat itu juga
   document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("jumlah-harta").addEventListener("input", calculator);
