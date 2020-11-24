@@ -62,13 +62,19 @@
 <script type="text/javascript">
   // Copy hasil kalkulasi dan redirect ke halaman Pembayaran
   function copyAndRedirect() {
-    var getHasilKalkulasi = document.getElementById("hasil-hitung-zakat");
-    getHasilKalkulasi.select();
-    getHasilKalkulasi.setSelectionRange(0,99999); // metode for mobile devices
-    document.execCommand("copy");
+    // cek apakah ia wajib bayar zakat mal atau tidak
+    var getJumlahHarta = document.getElementById("jumlah-harta").value;
+    if (getJumlahHarta >= (800000 * 85)) {
+      var getHasilKalkulasi = document.getElementById("hasil-hitung-zakat");
+      getHasilKalkulasi.select();
+      getHasilKalkulasi.setSelectionRange(0,99999); // metode for mobile devices
+      document.execCommand("copy");
 
-    alert("Hasil kalkulasi telah dicopy: Rp" + getHasilKalkulasi.value); // kasih alert
-    window.location="/bayar-zakat"; // redirect ke halaman pembayaran
+      // alert("Hasil kalkulasi telah dicopy: Rp" + getHasilKalkulasi.value); // kasih alert
+      window.location="/bayar-zakat"; // redirect ke halaman pembayaran
+    } else {
+      alert("Anda tidak WAJIB membayat Zakat Mal.");
+    }
   }
 
   // Show Subtitle when Jenis Zakat selected
