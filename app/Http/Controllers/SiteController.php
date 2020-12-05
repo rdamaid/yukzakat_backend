@@ -20,8 +20,13 @@ class SiteController extends Controller
 
     public function bayarzakat()
     {
-        $title= 'Pembayaran Zakat | YukZakat';
-        return view('sites.landingpage.bayar-zakat', compact('title'));
+        $users = Auth::user();
+        // $title= 'Pembayaran Zakat | YukZakat';
+        // return view('sites.landingpage.bayar-zakat', compact('title'));
+        return view('sites.landingpage.bayar-zakat', [
+          'title' => 'Pembayaran Zakat | YukZakat',
+          'users' => $users
+        ]);
     }
 
     public function kalkulasizakat()
@@ -35,7 +40,7 @@ class SiteController extends Controller
         $title= 'Rekening | YukZakat';
         return view('sites.landingpage.rekening', compact('title'));
     }
-    
+
     // Dashboard User View
     public function transaksi()
     {
