@@ -421,6 +421,35 @@ table th {
 }
 
 /* END OF PROFIL */
+/* START REKENING */
+
+.rekening h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.rekening h2 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.rekening p {
+    font-weight: 500;
+    color: #000000 !important;
+    opacity: 100%;
+    font-size: 14px;
+}
+
+.rekening img {
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 30%;
+}
+
+/* END REKENING */
+
 
 /* Desktop Version */
 @media (min-width: 992px) {
@@ -542,4 +571,33 @@ table th {
         display: unset;
         padding: 10px;
     }
+
+    /* START REKENING */
+
+    .rekening h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    .rekening h2 {
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    .rekening p {
+        font-weight: 500;
+        color: #000000 !important;
+        opacity: 100%;
+        font-size: 20px;
+    }
+
+    .rekening img {
+        display: block;
+        margin: 0 auto;
+        padding: 20px 0;
+        width: 30%;
+    }
+
+    /* END REKENING */
 }
