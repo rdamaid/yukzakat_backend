@@ -27,10 +27,10 @@
                         <div class="form-group">
                           <label>Transfer Via Bank:</label>
                           <select class="form-control" name="jenis">
-                            <option>Mandiri Syariah (0160043929)</option>
-                            <option>BNI Syariah (34782394)</option>
-                            <option>BRI Syariah (12786439)</option>
-                            <option>BTPN Syariah (18276290)</option>
+                            <option>Mandiri Syariah</option>
+                            <option>BNI Syariah</option>
+                            <option>BRI Syariah</option>
+                            <option>BTPN Syariah</option>
                           </select>
                         </div>
                         <div class="form-group">

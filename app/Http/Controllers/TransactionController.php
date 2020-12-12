@@ -34,7 +34,7 @@ class TransactionController extends Controller
         $transaksi->jenis = $request->input('jenis');
         $transaksi->save();
 
-        return redirect('/bayar-zakat')->with('success', 'Berhasil! Pembayaran akan segera diverifikasi.');
+        return redirect('/bayar-zakat')->with('success', 'Berhasil! Silakan lakukan pembayaran.');
       } else {
         return redirect('/bayar-zakat')->with('success', 'Anda belum login! Pembayaran dibatalkan.');
       }

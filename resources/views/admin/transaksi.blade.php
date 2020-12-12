@@ -40,7 +40,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Haji Kontol</td>
+                                <td>Haji Junjun</td>
                                 <td>Rp. 2.500.000,-</td>
                                 <td>12 Desember 2012</td>
                                 <td><span class="btn btn-success btn-block">Selesai</span></td>
