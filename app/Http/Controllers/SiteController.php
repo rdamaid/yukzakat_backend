@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\Transaction;
 use Auth;
 Use Alert;
 
@@ -75,8 +76,6 @@ class SiteController extends Controller
             'email' => 'required',
             'no_telepon' => 'required',
             'alamat' => 'required',
-            'oldpassword' => 'required',
-            'password' => 'required|confirmed'
         ]);
         $users = User::find(Auth::user()->id);
         //buat upload gambar
@@ -107,6 +106,24 @@ class SiteController extends Controller
         return redirect('/profil')->with('success', 'Profil berhasil diupdate!');
     }
 
+    public function bayar(Request $request) {
+      // check kalo user udah login apa belum
+      if (Auth::check()) {
+        $id = Auth::user()->id;
+      } else {
+        $id = "0";
+      }
 
+      $this->validate($request, [
 
+      ]);
+
+      $transaksi = New Transaction;
+      $transaksi->user_id = $id;
+      $transaksi->nominal = $request->input('nominal');
+      $transaksi->jenis = $request->input('jenis');
+      $transaksi->save();
+
+      return redirect('/bayar-zakat');
+    }
 }

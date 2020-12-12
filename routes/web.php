@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/bayar-zakat', 'SiteController@bayarzakat')->name('bayar-zakat');
     Route::get('/kalkulasi-zakat', 'SiteController@kalkulasizakat')->name('kalkulasi-zakat');
     Route::get('/rekening', 'SiteController@rekening')->name('rekening');
-    
+
     // Dashboard User
     Route::get('/profil', 'SiteController@profil')->name('profil');
     Route::get('/profil/{id}/edit', 'SiteController@editprofil')->name('edit-profil');
@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
 
-
+    Route::post('/bayar-zakat', 'SiteController@bayar')->name('bayar');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('sites.dashboard.index');
