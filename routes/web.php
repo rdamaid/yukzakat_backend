@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
 
-    Route::post('/bayar-zakat', 'SiteController@bayar')->name('bayar');
+    Route::post('/bayar-zakat', 'TransactionController@bayar')->name('bayar');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('sites.dashboard.index');
