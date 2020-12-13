@@ -64,4 +64,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Relation to Transaction
+     */
+    public function transaction() {
+        return $this->hasMany(Transaction::class);
+     }
 }

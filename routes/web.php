@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     // Dashboard Admin
     Route::get('/admin', 'AdminController@admin')->name('admin');
     Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admindashboard');
+    Route::get('/admin/user', 'AdminController@user')->name('adminuser');
     Route::get('/admin/transaksi', 'AdminController@transaksi')->name('admintransaksi');
 });
 
@@ -35,9 +36,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::post('/profil/edit/save', 'SiteController@saveprofil')->name('save-profil');
 
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
+    Route::get('/transaksi', 'TransactionController@riwayat')->name('transaksi');
 
-    Route::post('/bayar-zakat', 'SiteController@bayar')->name('bayar');
-
+    Route::post('/bayar-zakat', 'TransactionController@bayar')->name('bayar');
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('sites.dashboard.index');
 // })->name('dashboard');

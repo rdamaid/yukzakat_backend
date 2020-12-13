@@ -82,34 +82,34 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        try {
-            $user = User::find($id);
-            if(!$user){
-                return ReturnGoodWay::failedReturn(
-                    'user not found',
-                    'bad request'
-                );
-            } else {
-                return ReturnGoodWay::successReturn(
-                    $user,
-                    $this->modelName,
-                    'Show user with id ' . $id,
-                    'success'
-                );
-            }
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function show($id)
+    // {
+    //     try {
+    //         $user = User::find($id);
+    //         if(!$user){
+    //             return ReturnGoodWay::failedReturn(
+    //                 'user not found',
+    //                 'bad request'
+    //             );
+    //         } else {
+    //             return ReturnGoodWay::successReturn(
+    //                 $user,
+    //                 $this->modelName,
+    //                 'Show user with id ' . $id,
+    //                 'success'
+    //             );
+    //         }
 
-        } catch (Exception $err) {
-            return $err;
-        }
-    }
+    //     } catch (Exception $err) {
+    //         return $err;
+    //     }
+    // }
 
     /**
      * Update the specified resource in storage.

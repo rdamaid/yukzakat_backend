@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="card mb-4">
             <div class="card-header judul pt-4">
-                Daftar Transaksi User
+                Daftar User
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -13,28 +13,22 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nama</th>
-                                <th>Detail Transaksi</th>
-                                <th>Tanggal</th>
-                                <th>Status</th>
+                                <th>Email</th>
+                                <th>Alamat</th>
+                                <th>Telepon</th>
+                                <th>Role</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($transactions as $transaction)
+                            @foreach ($users as $user)
                             <tr>
-                                <td>{{$transaction->id}}</td>
-                                <td>{{$transaction->jenis}}</td>
-                                <td>{{$transaction->nominal}}</td>
-                                <td>{{$transaction->created_at}}</td>
-                                @if ($transaction->status == 0)
-                                    <td>
-                                        <span class="btn btn-danger btn-block">Belum Selesai</span>
-                                    </td>
-                                    @else
-                                    <td>
-                                        <span class="btn btn-success btn-block">Selesai</span>
-                                    </td>
-                                @endif
+                                <td>{{$user->id}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->alamat}}</td>
+                                <td>{{$user->no_telepon}}</td>
+                                <td>{{$user->role}}</td>
                                 <td class="center">
                                     <a href=#" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm">Delete</a>

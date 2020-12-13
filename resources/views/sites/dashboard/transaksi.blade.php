@@ -26,31 +26,23 @@
                                             <th>Status Pembayaran</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Detail Transaksi</th>
-                                            <th>Jenis Pembayaran</th>
-                                            <th>Tanggal</th>
-                                            <th>Status Pembayaran</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
+                                        @foreach ($transactions as $transaction)
                                         <tr>
-                                            <td>Rp. 2.500.000,-</td>
-                                            <td>Haji Bolot</td>
-                                            <td>12 Desember 2012</td>
+                                            <td>{{$transaction->nominal}}</td>
+                                            <td>{{$transaction->jenis}}</td>
+                                            <td>{{$transaction->created_at}}</td>
+                                            @if ($transaction->status == 0)
                                             <td>
                                                 <span class="btn btn-danger btn-block">Belum Selesai</span>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rp. 2.500.000,-</td>
-                                            <td>Haji Bajigur</td>
-                                            <td>12 Desember 2012</td>
+                                            @else
                                             <td>
                                                 <span class="btn btn-success btn-block">Selesai</span>
                                             </td>
+                                            @endif
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

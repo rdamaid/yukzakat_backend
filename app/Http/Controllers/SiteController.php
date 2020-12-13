@@ -105,25 +105,4 @@ class SiteController extends Controller
 
         return redirect('/profil')->with('success', 'Profil berhasil diupdate!');
     }
-
-    public function bayar(Request $request) {
-      // check kalo user udah login apa belum
-      if (Auth::check()) {
-        $id = Auth::user()->id;
-      } else {
-        $id = "0";
-      }
-
-      $this->validate($request, [
-
-      ]);
-
-      $transaksi = New Transaction;
-      $transaksi->user_id = $id;
-      $transaksi->nominal = $request->input('nominal');
-      $transaksi->jenis = $request->input('jenis');
-      $transaksi->save();
-
-      return redirect('/bayar-zakat');
-    }
 }
