@@ -101,10 +101,13 @@
                 console.log(willDelete);
                 if (willDelete) {
                     window.location = "/admin/" + "user/" + user_id + "/delete";
+                    
                 } else {
 
                 }
+              
             });
+            
     });
 
 </script>
@@ -131,12 +134,12 @@
                     </div>
                     <div class="form-group">
                         <label for="nama">Email</label>
-                        <input required name="email" type="text" class="form-control" id="email"
+                        <input required name="email" type="email" class="form-control" id="email"
                             aria-describedby="email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="nama">Password</label>
-                        <input required name="password" type="text" class="form-control" id="password"
+                        <input required name="password" type="password" class="form-control" id="password"
                             aria-describedby="password" placeholder="Password">
                     </div>
                     <div class="form-group">

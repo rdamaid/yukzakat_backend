@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nama">Password</label>
-                        <input required name="password" type="text" class="form-control"
+                        <input required name="password" type="password" class="form-control"
                             id="password" aria-describedby="password" placeholder="*********">
                     </div>
                     <div class="form-group">
