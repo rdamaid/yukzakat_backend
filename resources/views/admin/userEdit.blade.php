@@ -21,6 +21,11 @@
                             id="email" aria-describedby="email" placeholder="Email">
                     </div>
                     <div class="form-group">
+                        <label for="nama">Password</label>
+                        <input required name="password" type="text" class="form-control"
+                            id="password" aria-describedby="password" placeholder="*********">
+                    </div>
+                    <div class="form-group">
                         <label for="nama">No. Telepon</label>
                         <input required name="no_telepon" value="{{$users->no_telepon}}" type="text"
                             class="form-control" id="no_telepon" aria-describedby="no_telepon"
@@ -30,6 +35,13 @@
                         <label for="alamat">Alamat</label>
                         <textarea required name="alamat" class="form-control" id="alamat"
                             rows="3">{{$users->alamat}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select name="role" class="form-control" id="role">
+                            <option value="admin" @if($users -> role =="admin") selected @endif >Admin</option>
+                            <option value="user" @if($users -> role =="user") selected @endif >User</option>                     
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-warning">Update</button>
                 </form>

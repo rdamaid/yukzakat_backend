@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     
     // USER PAGE
     Route::get('/admin/user', 'AdminController@user')->name('adminuser');
+    Route::get('/admin/user/add', 'AdminController@addUserPage')->name('addUserPage');
+    Route::post('/admin/user/add', 'AdminController@addUser')->name('addUser');
     Route::get('/admin/user/{id}/edit', 'AdminController@editUserPage')->name('edit-user');
     Route::get('/admin/user/{id}/delete', 'AdminController@destroy_user')->name('destroy-user');
     Route::post('/admin/user/{id}/update', 'AdminController@edit_user')->name('edit-user');

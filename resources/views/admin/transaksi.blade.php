@@ -11,7 +11,7 @@
                     <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Id</th>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>Detail Transaksi</th>
                                 <th>Tanggal</th>
@@ -20,9 +20,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($transactions as $transaction)
+                            @foreach ($transactions as $index => $transaction)
                             <tr>
-                                <td>{{$transaction->id}}</td>
+                                <td>{{$index + 1}}</td>
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>

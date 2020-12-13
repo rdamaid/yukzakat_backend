@@ -1,52 +1,57 @@
 body {
-  font-family: Lato;
+    font-family: Lato;
 }
 
 .breadcrumb {
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 
 .dashboard {
-  margin-top: -50px;
-  padding-top: 15px;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
+    margin-top: -50px;
+    padding-top: 15px;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
 }
 
 .card-header {
-  border-bottom: transparent;
-  background-color: transparent;
-  text-transform: uppercase;
+    border-bottom: transparent;
+    background-color: transparent;
+    text-transform: uppercase;
 }
 
 .body-card-db {
-  font-size: 40px;
-  font-weight: 700;
-  margin-top: -20px;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: -20px;
 }
 
 .judul {
-  font-weight: 700;
+    font-weight: 700;
+}
+
+.judulAdmin {
+    display: flex;
+    justify-content: space-between;
 }
 
 .bg-dark {
-  background-color: #27ae60 !important;
+    background-color: #27ae60 !important;
 }
 
 .navbar-brand {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .logo {
-  margin-left: 10px;
-  max-width: 70px;
+    margin-left: 10px;
+    max-width: 70px;
 }
 
 /* Desktop Version */
 @media (min-width: 992px) {
-  .logo {
-    margin-left: 30px;
-    max-width: 70px;
-  }
+    .logo {
+        margin-left: 30px;
+        max-width: 70px;
+    }
 }

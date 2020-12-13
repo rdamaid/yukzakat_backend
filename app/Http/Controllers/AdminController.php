@@ -44,12 +44,67 @@ class AdminController extends Controller
     {
         try {
             $title= 'Beranda | YukZakat';
-            $users = User::get();
+            $users =  User::where('role', 'user')->get();
+            $admins =  User::where('role', 'admin')->get();
     
             return view('admin.user', [
                 'title' => 'Admin User | YukZakat',
-                'users' => $users
+                'users' => $users,
+                'admins' => $admins
             ]);  
+        } catch (Exception $err) {
+            return $err;
+        }
+    }
+
+    public function addUserPage()
+    {
+        try {
+            $title= 'Add User | YukZakat';
+           
+            return view('admin.userAdd', [
+                'title' => 'Admin User | YukZakat',
+            ]);  
+
+        } catch (Exception $err) {
+            return $err;
+        }
+    }
+
+    public function addUser(Request $request)
+    {
+        try {  
+            $this->validate($request, [
+                'user_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'name' => 'required',
+                'email' => 'required',
+                'no_telepon' => 'required',
+                'alamat' => 'required',
+                'role' => 'required',
+                'password' => 'required'
+            ]);  
+
+            $user = new User();
+            
+            if ($request->hasFile('user_image')) {
+                $request->file('user_image')->move('img/user_img/', $request->file('user_image')->getClientOriginalName());
+                $user->user_image = $request->file('user_image')->getClientOriginalName();
+            };
+            
+            // $user->id =  User::findOrFail($id);
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->password = bcrypt($request->input('password'));
+            $user->no_telepon = $request->input('no_telepon');
+            $user->alamat = $request->input('alamat');
+            $user->role = $request->input('role');
+            $user->save(); //save all   
+            
+            // dd($user);
+         
+            if ($user){
+                return redirect('/admin/user')->with('success', 'User berhasil di Tambah');
+            } 
         } catch (Exception $err) {
             return $err;
         }
@@ -81,8 +136,10 @@ class AdminController extends Controller
                 'email' => 'required',
                 'no_telepon' => 'required',
                 'alamat' => 'required',
+                'role' => 'required',
+                'password' => 'required'
             ]);  
-            $user = User::find($id);
+            $user = User::findOrFail($id);
             if ($request->hasFile('user_image')) {
                 $request->file('user_image')->move('img/user_img/', $request->file('user_image')->getClientOriginalName());
                 $user->user_image = $request->file('user_image')->getClientOriginalName();
@@ -91,8 +148,11 @@ class AdminController extends Controller
             // $user->id =  User::findOrFail($id);
             $user->name = $request->input('name');
             $user->email = $request->input('email');
+            $user->password = bcrypt($request->input('password'));
             $user->no_telepon = $request->input('no_telepon');
             $user->alamat = $request->input('alamat');
+            $user->role = $request->input('role');
+
             $user->save(); //save all   
     
          
