@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-body">
                         <div class="body-card-db">
-                            60
+                            {{$user}}
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="card-body">
                         <div class="body-card-db">
-                            16
+                            {{$transaksi}}
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="card-body">
                         <div class="body-card-db">
-                            7
+                            {{$belum}}
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="card-body">
                         <div class="body-card-db">
-                            8
+                            {{$selesai}}
                         </div>
                     </div>
                 </div>

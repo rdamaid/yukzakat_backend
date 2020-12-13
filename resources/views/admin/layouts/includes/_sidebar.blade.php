@@ -10,6 +10,13 @@
                     </div>
                     Beranda
                 </a>
+                <a class="nav-link {{ (request()->is('/admin/user')) ? 'active' : '' }}"
+                    href="{{route('adminuser')}}">
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    User
+                </a>
                 <a class="nav-link {{ (request()->is('/admin/transaksi')) ? 'active' : '' }}"
                     href="{{route('admintransaksi')}}">
                     <div class="sb-nav-link-icon">

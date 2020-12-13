@@ -17,42 +17,42 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
-Route::prefix('v1')->group(function(){
+// Route::prefix('v1')->group(function(){
     
-    Route::group(['prefix' => 'auth'], function () {
+//     Route::group(['prefix' => 'auth'], function () {
         
-        Route::post('login', [AuthController::class, 'login']);
-        Route::post('signup', [AuthController::class, 'signup']);
+//         Route::post('login', [AuthController::class, 'login']);
+//         Route::post('signup', [AuthController::class, 'signup']);
       
-        Route::group(['middleware' => 'auth:sanctum'], function() {
-            Route::get('user', [AuthController::class, 'user']);
-            Route::get('logout', [AuthController::class, 'logout']);
-        });
-    });
+//         Route::group(['middleware' => 'auth:sanctum'], function() {
+//             Route::get('user', [AuthController::class, 'user']);
+//             Route::get('logout', [AuthController::class, 'logout']);
+//         });
+//     });
 
-    Route::group(['middleware' => 'auth:sanctum'], function() {
+//     Route::group(['middleware' => 'auth:sanctum'], function() {
         
-        Route::prefix('users')->group(function(){
-            Route::get('/show', [UserController::class, 'index']);
-            Route::get('/show/{id}', [UserController::class, 'show']);
-            Route::post('/create', [UserController::class, 'store']);
-            Route::put('/update/{id}', [UserController::class, 'update']);
-            Route::delete('/delete/{id}', [UserController::class, 'destroy']);
-        });
+//         Route::prefix('users')->group(function(){
+//             Route::get('/show', [UserController::class, 'index']);
+//             Route::get('/show/{id}', [UserController::class, 'show']);
+//             Route::post('/create', [UserController::class, 'store']);
+//             Route::put('/update/{id}', [UserController::class, 'update']);
+//             Route::delete('/delete/{id}', [UserController::class, 'destroy']);
+//         });
 
-        Route::prefix('transactions')->group(function(){    
-            Route::get('/show', [TransactionController::class, 'index']);
-            Route::get('/show/{id}', [TransactionController::class, 'show']);
-            Route::post('/create', [TransactionController::class, 'store']);
-            Route::put('/update/{id}', [TransactionController::class, 'update']);
-            Route::delete('/delete/{id}', [TransactionController::class, 'destroy']);
-        });
+//         Route::prefix('transactions')->group(function(){    
+//             Route::get('/show', [TransactionController::class, 'index']);
+//             Route::get('/show/{id}', [TransactionController::class, 'show']);
+//             Route::post('/create', [TransactionController::class, 'store']);
+//             Route::put('/update/{id}', [TransactionController::class, 'update']);
+//             Route::delete('/delete/{id}', [TransactionController::class, 'destroy']);
+//         });
 
-    });
+//     });
 
-});
+// });
