@@ -198,12 +198,13 @@ class AdminController extends Controller
 
     public function edit_transaksi(Request $request, $id)
     {
-        try {    
+        try {   
+            $this->validate($request, [
+                'status' => 'required'
+            ]);  
             $transaction = Transaction::find($id);
-            $transaction->update([
-                'nominal' => $request->input('nominal'),
-                'jenis' => $request->input('jenis'),
-            ]);
+            $transaction->status = $request->input('status');
+            $transaction->save();
     
             if ($transaction){
                 return redirect('/admin/transaksi')->with('success', 'Transaksi berhasil di Update');
