@@ -6,7 +6,7 @@
             <div class="card-header judul pt-4">
                 Edit Data User
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <form action="/admin/user/{{$users->id}}/update" class="form-horizontal needs-validation" method="POST"
                     enctype="multipart/form-data">
                     @csrf
