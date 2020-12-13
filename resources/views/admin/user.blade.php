@@ -57,7 +57,7 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>Alamat</th>
+                                <th style="width: 320px;">Alamat</th>
                                 <th>Telepon</th>
                                 <th>Aksi</th>
                             </tr>
