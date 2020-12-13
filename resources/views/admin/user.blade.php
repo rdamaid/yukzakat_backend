@@ -14,7 +14,7 @@
                                 <th>Id</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>Alamat</th>
+                                <th style="width: 320px;">Alamat</th>
                                 <th>Telepon</th>
                                 <th>Role</th>
                                 <th>Aksi</th>
