@@ -51,6 +51,10 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/admin/datatables-demo.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweetalert::alert')
+
+    @yield('script')
 </body>
 
 </html>

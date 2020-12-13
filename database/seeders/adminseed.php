@@ -23,6 +23,33 @@ class adminseed extends Seeder
                 'no_telepon' => '082283777098',
                 'alamat' => 'Jalan Bersama No. 114, Kelurahan Tembilahan, Kec. Tembilahan Hulu, Kabupaten Indragiri Hilir, Provinsi Riau',
                 'role' => 'admin',
+            ],
+            [
+                'name'            => 'kamil',
+                'email'           => 'kamil@gmail.com',
+                'email_verified_at' => '2019-05-14 04:10:10',
+                'password'        => bcrypt("password"),
+                'no_telepon' => '082283777098',
+                'alamat' => 'Jalan Bersama No. 114, Kelurahan Tembilahan, Kec. Tembilahan Hulu, Kabupaten Indragiri Hilir, Provinsi Riau',
+                'role' => 'user',
+            ],
+            [
+                'name'            => 'guntur',
+                'email'           => 'guntur@gmail.com',
+                'email_verified_at' => '2019-05-14 04:10:10',
+                'password'        => bcrypt("password"),
+                'no_telepon' => '082283777098',
+                'alamat' => 'Jalan Bersama No. 114, Kelurahan Tembilahan, Kec. Tembilahan Hulu, Kabupaten Indragiri Hilir, Provinsi Riau',
+                'role' => 'user',
+            ],
+            [
+                'name'            => 'reyhan',
+                'email'           => 'reyhan@gmail.com',
+                'email_verified_at' => '2019-05-14 04:10:10',
+                'password'        => bcrypt("password"),
+                'no_telepon' => '082283777098',
+                'alamat' => 'Jalan Bersama No. 114, Kelurahan Tembilahan, Kec. Tembilahan Hulu, Kabupaten Indragiri Hilir, Provinsi Riau',
+                'role' => 'user',
             ]
         ]);
     }

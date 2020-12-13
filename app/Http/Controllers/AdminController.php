@@ -55,17 +55,47 @@ class AdminController extends Controller
         }
     }
 
+    public function editUserPage($id)
+    {
+        try {
+            $title= 'Edit User | YukZakat';
+            $users = User::find($id);
+            // dd($users);
+            return view('admin.userEdit', [
+                'title' => 'Admin User | YukZakat',
+                'users' => $users
+            ]);  
+
+        } catch (Exception $err) {
+            return $err;
+        }
+       
+    }
+
     public function edit_user(Request $request, $id)
     {
-        try {    
+        try {  
+            $this->validate($request, [
+                'user_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'name' => 'required',
+                'email' => 'required',
+                'no_telepon' => 'required',
+                'alamat' => 'required',
+            ]);  
             $user = User::find($id);
-            $user->update([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'no_telepon' => $request->input('no_telepon'),
-                'alamat' => $request->input('alamat'),
-            ]);
+            if ($request->hasFile('user_image')) {
+                $request->file('user_image')->move('img/user_img/', $request->file('user_image')->getClientOriginalName());
+                $user->user_image = $request->file('user_image')->getClientOriginalName();
+            }
+            
+            // $user->id =  User::findOrFail($id);
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->no_telepon = $request->input('no_telepon');
+            $user->alamat = $request->input('alamat');
+            $user->save(); //save all   
     
+         
             if ($user){
                 return redirect('/admin/user')->with('success', 'User berhasil di Update');
             } 

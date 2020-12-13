@@ -19,8 +19,15 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     // Dashboard Admin
     Route::get('/admin', 'AdminController@admin')->name('admin');
     Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admindashboard');
-    Route::get('/admin/user', 'AdminController@user')->name('adminuser');
+    
+    // Transaksi PAGE
     Route::get('/admin/transaksi', 'AdminController@transaksi')->name('admintransaksi');
+    
+    // USER PAGE
+    Route::get('/admin/user', 'AdminController@user')->name('adminuser');
+    Route::get('/admin/user/{id}/edit', 'AdminController@editUserPage')->name('edit-user');
+    Route::get('/admin/user/{id}/delete', 'AdminController@destroy_user')->name('destroy-user');
+    Route::post('/admin/user/{id}/update', 'AdminController@edit_user')->name('edit-user');
 });
 
 

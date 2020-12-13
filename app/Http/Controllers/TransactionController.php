@@ -32,9 +32,9 @@ class TransactionController extends Controller
         $transaksi->jenis = $request->input('jenis');
         $transaksi->save();
 
-        return redirect('/bayar-zakat')->with('success', 'Berhasil! Silakan lakukan pembayaran.');
+        return redirect('/rekening')->with('success', 'Berhasil! Silakan lakukan pembayaran.');
       } else {
-        return redirect('/bayar-zakat')->with('success', 'Anda belum login! Pembayaran dibatalkan.');
+        return redirect('/login')->with('warning', 'Anda belum login! Pembayaran dibatalkan.');
       }
     }
 
