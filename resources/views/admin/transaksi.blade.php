@@ -45,7 +45,7 @@
                                 <td>12 Desember 2012</td>
                                 <td><span class="btn btn-success btn-block">Selesai</span></td>
                                 <td>
-                                    <a href=#" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
 
                                 </td>
