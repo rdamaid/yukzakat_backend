@@ -13,11 +13,11 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Rp</div>
                             </div>
-                            <input required type="number" class="form-control" name="nominal" id="jumlah-harta" placeholder="Jumlah Zakat | Contoh : 10000000" />
+                            <input required type="number" class="form-control" name="nominal" id="jumlah-harta" placeholder="Jumlah Zakat" />
                         </div>
                         <div class="subtitle">
                             <label class="sublabel" for="jumlah-harta">
-                                *Jumlah donasi diatas dihitung dengan kalkulator
+                                *Jumlah di atas dihitung dengan kalkulator.
                             </label>
                         </div>
 
@@ -25,12 +25,10 @@
                             <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" />
                         </div>
                         <div class="form-group">
-                          <label>Transfer Via Bank:</label>
                           <select required class="form-control" name="jenis">
-                            <option>Mandiri Syariah</option>
-                            <option>BNI Syariah</option>
-                            <option>BRI Syariah</option>
-                            <option>BTPN Syariah</option>
+                            <option disabled selected>Pilih Jenis Zakat</option>
+                            <option>Zakat Maal</option>
+                            <option>Zakat Penghasilan</option>
                           </select>
                         </div>
                         <div class="form-group">
@@ -41,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" id="deskripsi" rows="3"
-                                placeholder="Tuliskan doa atau dukungan atas zakat ini"></textarea>
+                                placeholder="Tuliskan doa atau dukungan atas zakat ini (opsional)"></textarea>
                         </div>
                         <button type="submit" class="btn btn-block btn-primary tombol">
                           Bayar Sekarang
