@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     
     // Transaksi PAGE
     Route::get('/admin/transaksi', 'AdminController@transaksi')->name('admintransaksi');
-    Route::get('/admin/transaksi/{id}/edit', 'AdminController@edit_transaksi')->name('edit-transaksi');
+    Route::get('/admin/transaksi/{id}/update', 'AdminController@edit_transaksi')->name('edit-transaksi');
     Route::get('/admin/transaksi/{id}/delete', 'AdminController@destroy_transaksi')->name('destroy-transaksi');
     
     // USER PAGE
@@ -30,8 +30,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/admin/user/add', 'AdminController@addUserPage')->name('addUserPage');
     Route::post('/admin/user/add', 'AdminController@addUser')->name('addUser');
     Route::get('/admin/user/{id}/edit', 'AdminController@editUserPage')->name('edit-user');
-    Route::get('/admin/user/{id}/delete', 'AdminController@destroy_user')->name('destroy-user');
     Route::post('/admin/user/{id}/update', 'AdminController@edit_user')->name('edit-user');
+    Route::get('/admin/user/{id}/delete', 'AdminController@destroy_user')->name('destroy-user');
 });
 
     // Landing
@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
     Route::get('/transaksi', 'TransactionController@riwayat')->name('transaksi');
+    Route::get('/transaksi/show/{id}', 'TransactionController@detail_transaksi')->name('detail-transaksi');
 
     Route::post('/bayar-zakat', 'TransactionController@bayar')->name('bayar');
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

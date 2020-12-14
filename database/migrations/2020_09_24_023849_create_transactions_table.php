@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('nominal');
             $table->string('jenis');
             $table->boolean('status')->default(0);
+            $table->string('bukti_pembayaran')->default('default.jpg');
             $table->timestamps();
         });
     }

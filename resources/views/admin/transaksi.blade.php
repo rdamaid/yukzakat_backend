@@ -16,6 +16,7 @@
                                 <th>Jenis Transaksi</th>
                                 <th>Detail Transaksi</th>
                                 <th>Tanggal</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -28,9 +29,11 @@
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>
+                                <td>{{$transaction->bukti_pembayaran}}</td>
                                 @if ($transaction->status == 0)
                                     <td>
-                                        <span class="btn btn-danger btn-block">Belum Selesai</span>
+                                        <span type="button" transaction-id="{{$transaction->id}}" 
+                                            class="btn btn-danger btn-block status">Belum Selesai</span>
                                     </td>
                                     @else
                                     <td>
@@ -38,7 +41,6 @@
                                     </td>
                                 @endif
                                 <td class="center">
-                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="#" transaksi-id="{{$transaction->id}}" type="button"
                                         class="btn btn-danger btn-sm delete">Delete
                                     </a>
@@ -77,8 +79,24 @@
             });
     });
 
+    $('.status').click(function (e) {
+        e.preventDefault();
+        var transaction_id = $(this).attr('transaction-id');
+        swal({
+                title: "Yakin?",
+                text: "Anda ingin mengubah status pembayaran dengan id " + transaction_id + "?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willUpdate) => {
+                console.log(willUpdate);
+                if (willUpdate) {
+                    window.location = "/admin/" + "transaksi/" + transaction_id + "/update";
+                } 
+            });
+    });
+
 </script>
 @endsection
-
 @endsection
-

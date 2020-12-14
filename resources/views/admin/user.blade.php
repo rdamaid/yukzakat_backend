@@ -11,7 +11,7 @@
                     <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Id</th>
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>Email</th>
                                 <th style="width: 320px;">Alamat</th>
@@ -45,7 +45,7 @@
                 <div class="judulAdmin">
                     Daftar Admin
                     <button class="btn btn-info" type="button" data-toggle="modal" data-target="#modalTambah">
-                        + Tambah Admin
+                        + Tambah 
                     </button>
                 </div>
             </div>
