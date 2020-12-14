@@ -41,8 +41,9 @@
                                     </td>
                                 @endif
                                 <td class="center">
-                                    <a href="#" transaction-id="{{$transaction->id}}" type="button" 
-                                        class="btn btn-danger btn-sm delete">Delete</a>
+                                    <a href="#" transaksi-id="{{$transaction->id}}" type="button"
+                                        class="btn btn-danger btn-sm delete">Delete
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -58,10 +59,10 @@
 <script type="text/javascript">
     $('.delete').click(function (e) {
         e.preventDefault();
-        var transaction_id = $(this).attr('transaction-id');
+        var transaksi_id = $(this).attr('transaksi-id');
         swal({
                 title: "Yakin?",
-                text: "Ingin dihapus data transaksi dengan id " + transaction_id + "?",
+                text: "Ingin menghapus data transaksi dengan id " + transaksi_id + "?",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -69,8 +70,12 @@
             .then((willDelete) => {
                 console.log(willDelete);
                 if (willDelete) {
-                    window.location = "/admin/" + "transaksi/" + transaction_id + "/delete";
-                } 
+                    window.location = "/admin/" + "transaksi/" + transaksi_id + "/delete";
+                    
+                } else {
+
+                }
+              
             });
     });
 
@@ -91,5 +96,7 @@
                 } 
             });
     });
+
 </script>
+@endsection
 @endsection
