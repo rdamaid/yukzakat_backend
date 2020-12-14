@@ -81,7 +81,7 @@ class AdminController extends Controller
                 'no_telepon' => 'required',
                 'alamat' => 'required',
                 'role' => 'required',
-                'password' => 'required'
+                'password' => 'required|string|min:8'
             ]);  
 
             $user = new User();
@@ -137,22 +137,25 @@ class AdminController extends Controller
                 'no_telepon' => 'required',
                 'alamat' => 'required',
                 'role' => 'required',
-                'password' => 'required'
+                'password' => 'sometimes|nullable|string|min:8|confirmed',
+                'password_confirmation' => 'sometimes|nullable|required_with:password|same:password'
             ]);  
+
+            // $user->update($request->all());
             $user = User::findOrFail($id);
             if ($request->hasFile('user_image')) {
                 $request->file('user_image')->move('img/user_img/', $request->file('user_image')->getClientOriginalName());
                 $user->user_image = $request->file('user_image')->getClientOriginalName();
             }
             
-            // $user->id =  User::findOrFail($id);
             $user->name = $request->input('name');
             $user->email = $request->input('email');
-            $user->password = bcrypt($request->input('password'));
+            if(!is_null(request('password'))) {
+                $user->password = bcrypt(request('password'));
+            }
             $user->no_telepon = $request->input('no_telepon');
             $user->alamat = $request->input('alamat');
             $user->role = $request->input('role');
-
             $user->save(); //save all   
     
          
@@ -183,7 +186,7 @@ class AdminController extends Controller
     public function transaksi()
     {
         try {
-            $title= 'Beranda | YukZakat';
+            $title= 'Admin Transaksi | YukZakat';
             $transactions = Transaction::get();
     
             return view('admin.transaksi', [

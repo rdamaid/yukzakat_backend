@@ -13,7 +13,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Rp</div>
                             </div>
-                            <input type="text" class="form-control" name="nominal" id="jumlah-harta" placeholder="Jumlah Zakat | Contoh : 10000000" />
+                            <input required type="number" class="form-control" name="nominal" id="jumlah-harta" placeholder="Jumlah Zakat | Contoh : 10000000" />
                         </div>
                         <div class="subtitle">
                             <label class="sublabel" for="jumlah-harta">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                           <label>Transfer Via Bank:</label>
-                          <select class="form-control" name="jenis">
+                          <select required class="form-control" name="jenis">
                             <option>Mandiri Syariah</option>
                             <option>BNI Syariah</option>
                             <option>BRI Syariah</option>
@@ -34,10 +34,10 @@
                           </select>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Alamat E-Mail" />
+                            <input required type="email" class="form-control" name="email" id="email" placeholder="Alamat E-Mail" />
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="phone" id="phone" placeholder="Nomor Telepon" />
+                            <input required type="number" class="form-control" name="phone" id="phone" placeholder="Nomor Telepon" />
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" id="deskripsi" rows="3"

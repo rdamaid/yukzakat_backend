@@ -13,6 +13,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Jenis Transaksi</th>
                                 <th>Detail Transaksi</th>
                                 <th>Tanggal</th>
                                 <th>Bukti Pembayaran</th>
@@ -24,6 +25,7 @@
                             @foreach ($transactions as $index => $transaction)
                             <tr>
                                 <td>{{$index + 1}}</td>
+                                <td>{{ucwords($transaction->user->name)}}</td>
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>
@@ -51,7 +53,6 @@
         </div>
     </div>
 </main>
-@endsection
 
 @section('script')
 <script type="text/javascript">

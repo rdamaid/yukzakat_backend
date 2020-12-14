@@ -23,7 +23,7 @@
                             @foreach ($users as $index => $user)
                             <tr>
                                 <td>{{$index +1 }}</td>
-                                <td>{{$user->name}}</td>
+                                <td>{{ucwords($user->name)}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->alamat}}</td>
                                 <td>{{$user->no_telepon}}</td>
@@ -66,14 +66,15 @@
                             @foreach ($admins as $index => $admin)
                             <tr>
                                 <td>{{$index + 1}}</td>
-                                <td>{{$admin->name}}</td>
+                                <td>{{ucwords($admin->name)}}</td>
                                 <td>{{$admin->email}}</td>
                                 <td>{{$admin->alamat}}</td>
                                 <td>{{$admin->no_telepon}}</td>
                                 <td class="center">
                                     <a href="/admin/user/{{$admin->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="#" user-id="{{$admin->id}}" type="button"
-                                        class="btn btn-danger btn-sm delete">Delete</a>
+                                        class="btn btn-danger btn-sm delete">Delete
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -92,7 +93,7 @@
         var user_id = $(this).attr('user-id');
         swal({
                 title: "Yakin?",
-                text: "Ingin dihapus data user dengan id " + user_id + "?",
+                text: "Ingin menghapus data user dengan id " + user_id + "?",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -101,10 +102,13 @@
                 console.log(willDelete);
                 if (willDelete) {
                     window.location = "/admin/" + "user/" + user_id + "/delete";
+                    
                 } else {
 
                 }
+              
             });
+            
     });
 
 </script>
@@ -131,12 +135,12 @@
                     </div>
                     <div class="form-group">
                         <label for="nama">Email</label>
-                        <input required name="email" type="text" class="form-control" id="email"
+                        <input required name="email" type="email" class="form-control" id="email"
                             aria-describedby="email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="nama">Password</label>
-                        <input required name="password" type="text" class="form-control" id="password"
+                        <input required name="password" type="password" class="form-control" id="password"
                             aria-describedby="password" placeholder="Password">
                     </div>
                     <div class="form-group">

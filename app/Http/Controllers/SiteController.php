@@ -68,41 +68,10 @@ class SiteController extends Controller
         ]);
     }
 
-    public function saveprofil(Request $request)
+    public function aboutPage()
     {
-        $this->validate($request, [
-            'user_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required',
-            'email' => 'required',
-            'no_telepon' => 'required',
-            'alamat' => 'required',
-        ]);
-        $users = User::find(Auth::user()->id);
-        //buat upload gambar
-        if ($request->hasFile('user_image')) {
-            $request->file('user_image')->move('img/user_img/', $request->file('user_image')->getClientOriginalName());
-            $users->user_image = $request->file('user_image')->getClientOriginalName();
-        }
-
-        $users->id = Auth::user()->id;
-        $users->name = $request->input('name');
-        $users->email = $request->input('email');
-        $users->no_telepon = $request->input('no_telepon');
-        $users->alamat = $request->input('alamat');
-        $users->save(); //save all
-
-        // // PASSWORD
-        // $hashedPassword = Auth::user()->password;
-        // if (Hash::check($request->oldpassword, $hashedPassword)) {
-        //     $users = User::find(Auth::id());
-        //     $users->password = Hash::make($request->password);
-        //     $users->save();
-        //     Auth::logout();
-        //     return redirect()->route('login')->with('success', "Password sudah diganti!");
-        // } else {
-        //     return redirect()->back()->with('failed', "Password error");
-        // }
-
-        return redirect('/profil')->with('success', 'Profil berhasil diupdate!');
+        $title= 'Tentang Kami | YukZakat';
+        return view('sites.landingpage.aboutPage', compact('title'));
     }
+    
 }
