@@ -30,7 +30,7 @@
                                     <tbody>
                                         @foreach ($transactions as $transaction)
                                         <tr>
-                                            <td>{{$transaction->nominal}}</td>
+                                            <td>Rp. {{$transaction->nominal}}</td>
                                             <td>{{$transaction->jenis}}</td>
                                             <td>{{$transaction->created_at}}</td>
                                             @if ($transaction->status == 0)
