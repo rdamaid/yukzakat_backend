@@ -13,7 +13,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Jenis Transaksi</th>
+                                <th>Jenis Zakat</th>
                                 <th>Detail Transaksi</th>
                                 <th>Tanggal</th>
                                 <th>Bukti Pembayaran</th>
