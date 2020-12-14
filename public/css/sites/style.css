@@ -319,7 +319,7 @@ a {
     background: #ffffff;
     padding-top: 30px;
     width: 90%;
-    height: 690px;
+    max-height: 850px;
     border-radius: 15px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 }
@@ -367,7 +367,7 @@ a {
     background: #ffffff;
     padding: 50px 50px;
     width: 100%;
-    height: 690px;
+    max-height: 850px;
     border-radius: 15px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 }

@@ -11,22 +11,18 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="nama">Nama</label>
+                        <label for="name">Nama</label>
                         <input required name="name" value="{{$users->name}}" type="text" class="form-control" id="name"
                             aria-describedby="name" placeholder="Nama">
                     </div>
                     <div class="form-group">
-                        <label for="nama">Email</label>
-                        <input required name="email" value="{{$users->email}}" type="text" class="form-control"
+                        <label for="email">Email</label>
+                        <input required name="email" value="{{$users->email}}" type="email" class="form-control"
                             id="email" aria-describedby="email" placeholder="Email">
                     </div>
+                   
                     <div class="form-group">
-                        <label for="nama">Password</label>
-                        <input required name="password" type="password" class="form-control"
-                            id="password" aria-describedby="password" placeholder="*********">
-                    </div>
-                    <div class="form-group">
-                        <label for="nama">No. Telepon</label>
+                        <label for="no_telepon">No. Telepon</label>
                         <input required name="no_telepon" value="{{$users->no_telepon}}" type="text"
                             class="form-control" id="no_telepon" aria-describedby="no_telepon"
                             placeholder="No. Telepon">
@@ -42,6 +38,17 @@
                             <option value="admin" @if($users -> role =="admin") selected @endif >Admin</option>
                             <option value="user" @if($users -> role =="user") selected @endif >User</option>                     
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control"
+                            id="password" aria-describedby="password" placeholder="*********">
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation">Konfirmasi Password</label>
+                        <input name="password_confirmation" type="password" class="form-control"
+                            id="password_confirmation" aria-describedby="password_confirmation" placeholder="*********">
                     </div>
                     <button type="submit" class="btn btn-warning">Update</button>
                 </form>

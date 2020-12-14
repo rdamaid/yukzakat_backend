@@ -29,6 +29,7 @@
                         </li>
                     </ul>
                     <a class="nav-link {{ (request()->is('rekening')) ? 'active' : '' }}" href="/rekening">Rekening</a>
+                    <!-- <a class="nav-link {{ (request()->is('rekening')) ? 'active' : '' }}" href="/rekening">Konfirmasi Pembayaran</a> -->
                     @if(Auth::guest())
                     <a class="nav-link" href="/login">Masuk</a>
                     <a class="btn btn-primary tombol-nav" href="/register">Daftar</a>

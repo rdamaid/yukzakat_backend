@@ -13,6 +13,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Jenis Transaksi</th>
                                 <th>Detail Transaksi</th>
                                 <th>Tanggal</th>
                                 <th>Status</th>
@@ -23,6 +24,7 @@
                             @foreach ($transactions as $index => $transaction)
                             <tr>
                                 <td>{{$index + 1}}</td>
+                                <td>{{ucwords($transaction->user->name)}}</td>
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>
@@ -37,7 +39,9 @@
                                 @endif
                                 <td class="center">
                                     <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="#" transaksi-id="{{$transaction->id}}" type="button"
+                                        class="btn btn-danger btn-sm delete">Delete
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -48,4 +52,33 @@
         </div>
     </div>
 </main>
+
+@section('script')
+<script type="text/javascript">
+    $('.delete').click(function (e) {
+        e.preventDefault();
+        var transaksi_id = $(this).attr('transaksi-id');
+        swal({
+                title: "Yakin?",
+                text: "Ingin menghapus data transaksi dengan id " + transaksi_id + "?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                console.log(willDelete);
+                if (willDelete) {
+                    window.location = "/admin/" + "transaksi/" + transaksi_id + "/delete";
+                    
+                } else {
+
+                }
+              
+            });
+    });
+
+</script>
 @endsection
+
+@endsection
+

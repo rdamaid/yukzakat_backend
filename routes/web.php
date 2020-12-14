@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     
     // Transaksi PAGE
     Route::get('/admin/transaksi', 'AdminController@transaksi')->name('admintransaksi');
+    Route::get('/admin/transaksi/{id}/edit', 'AdminController@edit_transaksi')->name('edit-transaksi');
+    Route::get('/admin/transaksi/{id}/delete', 'AdminController@destroy_transaksi')->name('destroy-transaksi');
     
     // USER PAGE
     Route::get('/admin/user', 'AdminController@user')->name('adminuser');
@@ -32,17 +34,17 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::post('/admin/user/{id}/update', 'AdminController@edit_user')->name('edit-user');
 });
 
-
     // Landing
     Route::get('/', 'SiteController@home')->name('home');
     Route::get('/bayar-zakat', 'SiteController@bayarzakat')->name('bayar-zakat');
     Route::get('/kalkulasi-zakat', 'SiteController@kalkulasizakat')->name('kalkulasi-zakat');
     Route::get('/rekening', 'SiteController@rekening')->name('rekening');
+    Route::get('/tentang-kami', 'SiteController@aboutPage')->name('aboutPage');
 
     // Dashboard User
     Route::get('/profil', 'SiteController@profil')->name('profil');
     Route::get('/profil/{id}/edit', 'SiteController@editprofil')->name('edit-profil');
-    Route::post('/profil/edit/save', 'SiteController@saveprofil')->name('save-profil');
+    Route::post('/profil/edit/save', 'UserController@saveprofil')->name('save-profil');
 
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
     Route::get('/transaksi', 'TransactionController@riwayat')->name('transaksi');

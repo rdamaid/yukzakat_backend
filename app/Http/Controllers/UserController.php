@@ -7,7 +7,8 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;   
-
+use Auth;
+Use Alert;
 class UserController extends Controller
 {
     private $modelName = 'User';
@@ -176,5 +177,36 @@ class UserController extends Controller
         } catch (Exception $err) {
             return $err;
         }
+    }
+
+    public function saveprofil(Request $request)
+    {
+        $this->validate($request, [
+            'user_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required',
+            'email' => 'required',
+            'no_telepon' => 'required',
+            'alamat' => 'required',
+            'password' => 'sometimes|nullable|string|min:6|confirmed',
+            'password_confirmation' => 'sometimes|nullable|required_with:password|same:password'
+        ]);
+        $users = User::find(Auth::user()->id);
+        //buat upload gambar
+        if ($request->hasFile('user_image')) {
+            $request->file('user_image')->move('img/user_img/', $request->file('user_image')->getClientOriginalName());
+            $users->user_image = $request->file('user_image')->getClientOriginalName();
+        }
+
+        $users->id = Auth::user()->id;
+        $users->name = $request->input('name');
+        $users->email = $request->input('email');
+        if(!is_null(request('password'))) {
+            $users->password = bcrypt(request('password'));
+        }
+        $users->no_telepon = $request->input('no_telepon');
+        $users->alamat = $request->input('alamat');
+        $users->save(); //save all
+
+        return redirect('/profil')->with('success', 'Profil berhasil diupdate!');
     }
 }
