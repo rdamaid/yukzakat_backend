@@ -28,7 +28,8 @@
                                 <td>{{$transaction->created_at}}</td>
                                 @if ($transaction->status == 0)
                                     <td>
-                                        <span class="btn btn-danger btn-block">Belum Selesai</span>
+                                        <span type="button" transaction-id="{{$transaction->id}}" 
+                                            class="btn btn-danger btn-block status">Belum Selesai</span>
                                     </td>
                                     @else
                                     <td>
@@ -36,8 +37,8 @@
                                     </td>
                                 @endif
                                 <td class="center">
-                                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="#" transaction-id="{{$transaction->id}}" type="button" 
+                                        class="btn btn-danger btn-sm delete">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -48,4 +49,44 @@
         </div>
     </div>
 </main>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    $('.delete').click(function (e) {
+        e.preventDefault();
+        var transaction_id = $(this).attr('transaction-id');
+        swal({
+                title: "Yakin?",
+                text: "Ingin dihapus data transaksi dengan id " + transaction_id + "?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                console.log(willDelete);
+                if (willDelete) {
+                    window.location = "/admin/" + "transaksi/" + transaction_id + "/delete";
+                } 
+            });
+    });
+
+    $('.status').click(function (e) {
+        e.preventDefault();
+        var transaction_id = $(this).attr('transaction-id');
+        swal({
+                title: "Yakin?",
+                text: "Anda ingin mengubah status pembayaran dengan id " + transaction_id + "?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willUpdate) => {
+                console.log(willUpdate);
+                if (willUpdate) {
+                    window.location = "/admin/" + "transaksi/" + transaction_id + "/update";
+                } 
+            });
+    });
+</script>
 @endsection

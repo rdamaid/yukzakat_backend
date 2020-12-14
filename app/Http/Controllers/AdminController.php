@@ -196,14 +196,11 @@ class AdminController extends Controller
 
     }
 
-    public function edit_transaksi(Request $request, $id)
+    public function edit_transaksi($id)
     {
         try {   
-            $this->validate($request, [
-                'status' => 'required'
-            ]);  
             $transaction = Transaction::find($id);
-            $transaction->status = $request->input('status');
+            $transaction->status = '1';
             $transaction->save();
     
             if ($transaction){
