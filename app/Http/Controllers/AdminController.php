@@ -160,7 +160,7 @@ class AdminController extends Controller
     
          
             if ($user){
-                return redirect('/admin/user')->with('success', 'User berhasil di Update');
+                return redirect('/admin/dashboard')->with('success', 'User berhasil di Update');
             } 
         } catch (Exception $err) {
             return $err;
@@ -173,7 +173,7 @@ class AdminController extends Controller
             $user = User::findOrFail($id);
             $user->delete();
     
-            return redirect('/admin/user')->with('success', 'User berhasil di Hapus');
+            return redirect('/admin/dashboard')->with('success', 'User berhasil di Hapus');
         } catch (Exception $err) {
             return $err;
         }
@@ -203,11 +203,14 @@ class AdminController extends Controller
     {
         try {   
             $transaction = Transaction::find($id);
-            $transaction->status = '1';
+            if($transaction->status == 0){
+                $transaction->status = '1';
+            } else if($transaction->status == 1){
+                $transaction->status = '0';
+            }
             $transaction->save();
-    
             if ($transaction){
-                return redirect('/admin/transaksi')->with('success', 'Transaksi berhasil di Update');
+                return redirect('/admin/dashboard')->with('success', 'Transaksi berhasil di Update');
             } 
         } catch (Exception $err) {
             return $err;
@@ -220,7 +223,7 @@ class AdminController extends Controller
             $transaction = Transaction::findOrFail($id);
             $transaction->delete();
     
-            return redirect('/admin/transaksi')->with('success', 'Transaksi berhasil di Hapus');
+            return redirect('/admin/dashboard')->with('success', 'Transaksi berhasil di Hapus');
         } catch (Exception $err) {
             return $err;
         }

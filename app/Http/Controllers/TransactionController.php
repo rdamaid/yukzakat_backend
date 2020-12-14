@@ -32,7 +32,7 @@ class TransactionController extends Controller
         $transaksi->jenis = $request->input('jenis');
         $transaksi->save();
 
-        return redirect('/rekening')->with('success', 'Berhasil! Silakan lakukan pembayaran.');
+        return redirect('/transaksi')->with('success', 'Berhasil! Silakan lakukan pembayaran.');
       } else {
         return redirect('/login')->with('warning', 'Anda belum login! Pembayaran dibatalkan.');
       }
@@ -58,5 +58,24 @@ class TransactionController extends Controller
         } catch (Exception $err) {
             return $err;
         }
+    }
+
+    public function upload_pembayaran(Request $request, $id){
+      try {
+        if (Auth::check()) {
+          $this->validate($request, [
+            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);  
+          $transaction = Transaction::find($id);
+          if ($request->hasFile('bukti_pembayaran')) {
+            $request->file('bukti_pembayaran')->move('img/transaksi_img/', $request->file('bukti_pembayaran')->getClientOriginalName());
+            $transaction->bukti_pembayaran = $request->file('bukti_pembayaran')->getClientOriginalName();
+            $transaction->save();
+          }
+          return redirect('/transaksi')->with('success', 'Bukti Pembayaran Berhasil di Upload');
+        }
+      } catch (Exception $err) {
+          return $err;
+      }
     }
 }

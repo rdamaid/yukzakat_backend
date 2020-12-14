@@ -29,7 +29,9 @@
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>
-                                <td>{{$transaction->bukti_pembayaran}}</td>
+                                <td>
+                                    <a href="{{ url('img/transaksi_img/'.$transaction->bukti_pembayaran) }}" target="_blank">Lihat Gambar</a>
+                                </td>
                                 @if ($transaction->status == 0)
                                     <td>
                                         <span type="button" transaction-id="{{$transaction->id}}" 
@@ -37,7 +39,8 @@
                                     </td>
                                     @else
                                     <td>
-                                        <span class="btn btn-success btn-block">Selesai</span>
+                                        <span type="button" transaction-id="{{$transaction->id}}" 
+                                            class="btn btn-success btn-block status">Selesai</span>
                                     </td>
                                 @endif
                                 <td class="center">
