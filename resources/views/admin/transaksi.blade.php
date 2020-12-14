@@ -15,6 +15,7 @@
                                 <th>Nama</th>
                                 <th>Detail Transaksi</th>
                                 <th>Tanggal</th>
+                                <th>Bukti Pembayaran</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -26,6 +27,7 @@
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>
+                                <td>{{$transaction->bukti_pembayaran}}</td>
                                 @if ($transaction->status == 0)
                                     <td>
                                         <span type="button" transaction-id="{{$transaction->id}}" 

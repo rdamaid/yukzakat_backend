@@ -13,22 +13,20 @@
                 <div class="col-8">
                     <div class="content">
                         <div class="transaksi-title">
-                            <h1>Transaksi Saya</h1>
+                            <h1>Detail Transaksi</h1>
                         </div>
                         <div class="row justify-content-center mt-5">
                             <div class="table-responsive">
                                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Detail Transaksi</th>
+                                            <th>Total</th>
                                             <th>Jenis Pembayaran</th>
                                             <th>Tanggal</th>
                                             <th>Status Pembayaran</th>
-                                            <th>Detail</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($transactions as $transaction)
                                         <tr>
                                             <td>{{$transaction->nominal}}</td>
                                             <td>{{$transaction->jenis}}</td>
@@ -42,11 +40,12 @@
                                                 <span class="btn btn-success btn-block">Selesai</span>
                                             </td>
                                             @endif
-                                            <td><button onclick="showDetail('{{$transaction->id}}')" class="btn btn-xs btn-info button">Detail</button></td>
                                         </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
+                                @if ($transaction->status == 0)
+                                    <button class="btn btn-info btn-block">Upload Bukti Pembayaran</button>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -57,9 +56,3 @@
 </div>
 <!-- END OF Konten Profil -->
 @endsection
-
-<script type="text/javascript">
-    function showDetail(transactionId) {
-        window.location = '/transaksi/show/' + transactionId;
-    }
-</script>

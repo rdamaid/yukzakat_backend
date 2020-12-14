@@ -48,4 +48,15 @@ class TransactionController extends Controller
             return $err;
         }
     }  
+
+    public function detail_transaksi($id){
+        try {
+          if (Auth::check()) {
+            $transaction = Transaction::find($id);
+            return view('sites.dashboard.detailtransaksi', compact('transaction'));
+          }
+        } catch (Exception $err) {
+            return $err;
+        }
+    }
 }

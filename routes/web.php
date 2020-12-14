@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
     Route::get('/transaksi', 'TransactionController@riwayat')->name('transaksi');
+    Route::get('/transaksi/show/{id}', 'TransactionController@detail_transaksi')->name('detail-transaksi');
 
     Route::post('/bayar-zakat', 'TransactionController@bayar')->name('bayar');
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
