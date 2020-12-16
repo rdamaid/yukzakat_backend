@@ -27,7 +27,7 @@
                                 <td>{{$index + 1}}</td>
                                 <td>{{ucwords($transaction->user->name)}}</td>
                                 <td>{{$transaction->jenis}}</td>
-                                <td>{{$transaction->nominal}}</td>
+                                <td>Rp. {{number_format($transaction->nominal, 2)}}</td>
                                 <td>{{$transaction->created_at}}</td>
                                 <td style="text-align: center;">                                    
                                     <button class="btn btn-info btn-detail open_modal"

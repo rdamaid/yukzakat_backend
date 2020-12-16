@@ -20,8 +20,8 @@
                                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Detail Transaksi</th>
-                                            <th>Jenis Pembayaran</th>
+                                            <th style="width: 20%">Detail Transaksi</th>
+                                            <th>Jenis Zakat</th>
                                             <th>Tanggal</th>
                                             <th>Status Pembayaran</th>
                                             <th>Detail</th>
@@ -30,7 +30,7 @@
                                     <tbody>
                                         @foreach ($transactions as $transaction)
                                         <tr>
-                                            <td>Rp. {{$transaction->nominal}}</td>
+                                            <td>Rp. {{number_format($transaction->nominal)}}</td>
                                             <td>{{$transaction->jenis}}</td>
                                             <td>{{$transaction->created_at}}</td>
                                             @if ($transaction->status == 0)
