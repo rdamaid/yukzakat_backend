@@ -62,10 +62,19 @@
                                     <div class="form-row justify-content-center">
                                         @if($transaction->bukti_pembayaran == 'default.jpg')
                                         <div class="form-group col-md-6">
+                                            <center>
+                                                <img src="{{asset('img/transaksi_img/'.$transaction->bukti_pembayaran)}}"
+                                                    class="profile-pic mt-1" alt="profil" id="output" />
+                                            </center>
                                             <div class="sub-pic">
                                                 <input type="file" name="bukti_pembayaran" onchange="loadFile(event)">
                                             </div>
                                         </div>
+                                        <!-- <div class="form-group col-md-6">
+                                            <div class="sub-pic">
+                                                <input type="file" name="bukti_pembayaran" onchange="loadFile(event)">
+                                            </div>
+                                        </div> -->
                                         <button type="submit" class="btn btn-info btn-block" style="margin: 15px;">
                                             Upload Bukti Pembayaran
                                         </button>

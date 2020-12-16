@@ -7,7 +7,7 @@
                     <ol class="breadcrumb">
                         <!-- <li class="breadcrumb-item bread-text"><a href="#">Home</a></li> -->
                         <li class="breadcrumb-item active bread-text" aria-current="page">
-                            Beranda
+                            <!-- Beranda -->
                         </li>
                     </ol>
                 </nav>

@@ -10,6 +10,7 @@
     "E-Mail Address": "Alamat Surel",
     "Email Password Reset Link": "Tautan Pengaturan Ulang Kata Sandi Surel",
     "Email": "Surel",
+    "Exists": "The selected :attribute is invalid.",
     "Forbidden": "Dilarang",
     "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Lupa kata sandi Anda? Tidak masalah. Beri tahu kami alamat surel Anda dan kami akan mengirimkan surel berisi tautan pengaturan ulang kata sandi yang memungkinkan Anda memilih kata sandi yang baru.",
     "Forgot your password?": "Lupa kata sandi Anda?",

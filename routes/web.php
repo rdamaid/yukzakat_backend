@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::get('/profil/{id}/edit', 'SiteController@editprofil')->name('edit-profil');
     Route::post('/profil/edit/save', 'UserController@saveprofil')->name('save-profil');
 
-    Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
+    // Route::get('/transaksi', 'SiteController@transaksi')->name('transaksi');
     Route::get('/transaksi', 'TransactionController@riwayat')->name('transaksi');
     Route::get('/transaksi/show/{id}', 'TransactionController@detail_transaksi')->name('detail-transaksi');
     Route::post('/transaksi/show/{id}', 'TransactionController@upload_pembayaran');

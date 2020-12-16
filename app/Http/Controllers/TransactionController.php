@@ -40,9 +40,10 @@ class TransactionController extends Controller
 
     public function riwayat(){
         try {
+          $title= 'Transaksi | YukZakat';
           if (Auth::check()) {
             $transactions = auth()->user()->transaction;
-            return view('sites.dashboard.transaksi', compact('transactions'));       
+            return view('sites.dashboard.transaksi', compact('transactions', "title"));       
           } 
         } catch (Exception $err) {
             return $err;
@@ -52,9 +53,10 @@ class TransactionController extends Controller
 
     public function detail_transaksi($id){
         try {
+          $title= 'Detail Transaksi | YukZakat';
           if (Auth::check()) {
             $transaction = Transaction::find($id);
-            return view('sites.dashboard.detailtransaksi', compact('transaction'));
+            return view('sites.dashboard.detailtransaksi', compact('transaction', 'title'));
           }
         } catch (Exception $err) {
             return $err;
@@ -72,9 +74,12 @@ class TransactionController extends Controller
             $request->file('bukti_pembayaran')->move('img/transaksi_img/', $request->file('bukti_pembayaran')->getClientOriginalName());
             $transaction->bukti_pembayaran = $request->file('bukti_pembayaran')->getClientOriginalName();
             $transaction->save();
+            return redirect('/transaksi')->with('success', 'Bukti Pembayaran Berhasil di Upload');
+          } 
+          else {
+            return redirect()->back()->with('warning', 'Bukti Pembayaran gagal di Upload');
           }
-          return redirect('/transaksi')->with('success', 'Bukti Pembayaran Berhasil di Upload');
-        }
+        } 
       } catch (Exception $err) {
           return $err;
       }

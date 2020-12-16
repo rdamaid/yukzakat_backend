@@ -48,8 +48,8 @@
                         </div>
                     </li>
                     <a class="nav-link" href="{{ route('rekening') }}">Rekening</a>
-                    <a class="nav-link active" href="/login">Masuk</a>
-                    <a class="btn btn-primary tombol-nav" href="/register">
+                    <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="/login">Masuk</a>
+                    <a class="btn btn-primary tombol-nav " href="/register">
                         Daftar
                     </a>
                 </div>
@@ -67,7 +67,7 @@
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">
             <span> © YukZakat 2020 </span>
-            <span> <a href="#">Tentang Kami</a> </span>
+            <span> <a href="{{route('aboutPage')}}">Tentang Kami</a> </span>
         </div>
 
         <!-- Copyright -->

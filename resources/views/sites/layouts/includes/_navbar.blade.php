@@ -36,14 +36,16 @@
                     @else
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link {{ (request()->is('profil/*')) ? 'active' : '' }} {{ (request()->is('transaksi')) ? 'active' : '' }}"
+                            <a class="nav-link {{ (request()->is('transaksi')) ? 'active' : '' }} {{ (request()->is('profil')) ? 'active' : '' }} {{ (request()->is('transaksi/*')) ? 'active' : '' }} {{ (request()->is('profil/*')) ? 'active' : '' }}"
                                 href="{{route('profil')}}">
-                                <i class="far fa-user pr-1 pl-0 user"></i>
                                 {{auth()->user()->name}}
+                                <i class="far fa-user pr-2 pr-0 user"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{route('profil')}}">Profil</a>
+                                @if(auth()->user()->role=='user')
                                 <a class="dropdown-item" href="{{route('transaksi')}}">Transaksi</a>
+                                @endif
                                 <div class="dropdown-divider"></div>
                                 <form id="form" action="{{route('logout')}}" method="POST">@csrf</form>
                                 <a class="dropdown-item" href="javascript:void(0)" onclick="document.getElementById('form').submit()">Logout</a>
