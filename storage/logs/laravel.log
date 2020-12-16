@@ -15841,3 +15841,23 @@ avigation-dropdown.blade.php) at C:\\Users\\M. Kamil Mistar\\Documents\\Project\
 #57 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\server.php(21): require_once('C:\\\\Users\\\\M. Kam...')
 #58 {main}
 "} 
+[2020-12-16 16:09:02] local.ERROR: Class 'Laravel\Jetstream\Jetstream' not found {"exception":"[object] (Error(code: 0): Class 'Laravel\\Jetstream\\Jetstream' not found at C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\app\\Providers\\JetstreamServiceProvider.php:40)
+[stacktrace]
+#0 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\app\\Providers\\JetstreamServiceProvider.php(28): App\\Providers\\JetstreamServiceProvider->configurePermissions()
+#1 [internal function]: App\\Providers\\JetstreamServiceProvider->boot()
+#2 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): call_user_func_array(Array, Array)
+#3 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#4 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#5 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(39): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#6 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(596): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#7 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(869): Illuminate\\Container\\Container->call(Array)
+#8 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(850): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\JetstreamServiceProvider))
+#9 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\JetstreamServiceProvider), 31)
+#10 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(851): array_walk(Array, Object(Closure))
+#11 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#12 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(230): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#13 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#14 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#15 C:\\Users\\M. Kamil Mistar\\Documents\\Project\\YukZakat\\yukzakat_backend\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 {main}
+"} 

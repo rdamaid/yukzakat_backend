@@ -113,11 +113,7 @@ class InstallCommand extends Command
     protected function installLivewireStack()
     {
         // Install Livewire...
-        (new Process(['composer', 'require', 'livewire/livewire:^2.0', 'laravel/sanctum:^2.6'], base_path()))
-                ->setTimeout(null)
-                ->run(function ($type, $output) {
-                    $this->output->write($output);
-                });
+        $this->requireComposerPackages('livewire/livewire:^2.0', 'laravel/sanctum:^2.6');
 
         // Sanctum...
         (new Process(['php', 'artisan', 'vendor:publish', '--provider=Laravel\Sanctum\SanctumServiceProvider', '--force'], base_path()))
@@ -133,14 +129,16 @@ class InstallCommand extends Command
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                '@tailwindcss/ui' => '^0.5.0',
+                'alpinejs' => '^2.7.3',
+                '@tailwindcss/ui' => '^0.6.0',
                 'postcss-import' => '^12.0.1',
-                'tailwindcss' => '^1.3.0',
+                'tailwindcss' => '^1.8.0',
             ] + $packages;
         });
 
         // Tailwind Configuration...
         copy(__DIR__.'/../../stubs/livewire/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__.'/../../stubs/webpack.config.js', base_path('webpack.config.js'));
         copy(__DIR__.'/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
 
         // Directories...
@@ -196,6 +194,7 @@ class InstallCommand extends Command
         // Assets...
         copy(__DIR__.'/../../stubs/public/css/app.css', public_path('css/app.css'));
         copy(__DIR__.'/../../stubs/resources/css/app.css', resource_path('css/app.css'));
+        copy(__DIR__.'/../../stubs/resources/js/app.js', resource_path('js/app.js'));
 
         // Teams...
         if ($this->option('teams')) {
@@ -247,22 +246,19 @@ EOF;
     protected function installInertiaStack()
     {
         // Install Inertia...
-        (new Process(['composer', 'require', 'inertiajs/inertia-laravel', 'laravel/sanctum:^2.6'], base_path()))
-                ->setTimeout(null)
-                ->run(function ($type, $output) {
-                    $this->output->write($output);
-                });
+        $this->requireComposerPackages('inertiajs/inertia-laravel:^0.2.4', 'laravel/sanctum:^2.6', 'tightenco/ziggy:^0.9.4');
 
         // Install NPM packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                '@inertiajs/inertia' => '^0.1.7',
-                '@inertiajs/inertia-vue' => '^0.1.2',
-                '@tailwindcss/ui' => '^0.1.3',
+                '@inertiajs/inertia' => '^0.3.0',
+                '@inertiajs/inertia-vue' => '^0.2.0',
+                '@tailwindcss/ui' => '^0.6.0',
                 'laravel-jetstream' => '^0.0.3',
+                'moment' => '^2.26.0',
                 'portal-vue' => '^2.1.7',
                 'postcss-import' => '^12.0.1',
-                'tailwindcss' => '^1.3.0',
+                'tailwindcss' => '^1.8.0',
                 'vue' => '^2.5.17',
                 'vue-template-compiler' => '^2.6.10',
             ] + $packages;
@@ -280,6 +276,7 @@ EOF;
 
         // Tailwind Configuration...
         copy(__DIR__.'/../../stubs/inertia/tailwind.config.js', base_path('tailwind.config.js'));
+        copy(__DIR__.'/../../stubs/webpack.config.js', base_path('webpack.config.js'));
         copy(__DIR__.'/../../stubs/webpack.mix.js', base_path('webpack.mix.js'));
 
         // Directories...
@@ -439,6 +436,26 @@ EOF;
                 $appConfig
             ));
         }
+    }
+
+    /**
+     * Installs the given Composer Packages into the application.
+     *
+     * @param  mixed  $packages
+     * @return void
+     */
+    protected function requireComposerPackages($packages)
+    {
+        $command = array_merge(
+            ['composer', 'require'],
+            is_array($packages) ? $packages : func_get_args()
+        );
+
+        (new Process($command, base_path(), ['COMPOSER_MEMORY_LIMIT' => '-1']))
+            ->setTimeout(null)
+            ->run(function ($type, $output) {
+                $this->output->write($output);
+            });
     }
 
     /**
