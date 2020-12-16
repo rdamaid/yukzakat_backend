@@ -67,7 +67,7 @@
                                                     class="profile-pic mt-1" alt="profil" id="output" />
                                             </center>
                                             <div class="sub-pic">
-                                                <input type="file" name="bukti_pembayaran" onchange="loadFile(event)">
+                                                <input required type="file" name="bukti_pembayaran" onchange="loadFile(event)">
                                             </div>
                                         </div>
                                         <!-- <div class="form-group col-md-6">
