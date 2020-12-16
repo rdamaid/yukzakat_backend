@@ -48,6 +48,7 @@ class TransactionController extends Controller
             return $err;
         }
     }  
+   
 
     public function detail_transaksi($id){
         try {

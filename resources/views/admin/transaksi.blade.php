@@ -29,19 +29,20 @@
                                 <td>{{$transaction->jenis}}</td>
                                 <td>{{$transaction->nominal}}</td>
                                 <td>{{$transaction->created_at}}</td>
-                                <td>
-                                    <a href="{{ url('img/transaksi_img/'.$transaction->bukti_pembayaran) }}" target="_blank">Lihat Gambar</a>
+                                <td style="text-align: center;">                                    
+                                    <button class="btn btn-info btn-detail open_modal"
+                                        data-toggle="modal" data-target="#myModal" data-target-id="{{ $transaction->bukti_pembayaran }}">Lihat Gambar</button>
                                 </td>
                                 @if ($transaction->status == 0)
-                                    <td>
-                                        <span type="button" transaction-id="{{$transaction->id}}" 
-                                            class="btn btn-danger btn-block status">Belum Selesai</span>
-                                    </td>
-                                    @else
-                                    <td>
-                                        <span type="button" transaction-id="{{$transaction->id}}" 
-                                            class="btn btn-success btn-block status">Selesai</span>
-                                    </td>
+                                <td>
+                                    <span type="button" transaction-id="{{$transaction->id}}"
+                                        class="btn btn-warning btn-block status">Belum Selesai</span>
+                                </td>
+                                @else
+                                <td>
+                                    <span type="button" transaction-id="{{$transaction->id}}"
+                                        class="btn btn-success btn-block status">Selesai</span>
+                                </td>
                                 @endif
                                 <td class="center">
                                     <a href="#" transaksi-id="{{$transaction->id}}" type="button"
@@ -74,11 +75,11 @@
                 console.log(willDelete);
                 if (willDelete) {
                     window.location = "/admin/" + "transaksi/" + transaksi_id + "/delete";
-                    
+
                 } else {
 
                 }
-              
+
             });
     });
 
@@ -96,10 +97,43 @@
                 console.log(willUpdate);
                 if (willUpdate) {
                     window.location = "/admin/" + "transaksi/" + transaction_id + "/update";
-                } 
+                }
             });
     });
 
 </script>
+
+<script>
+    $(document).ready(function () {
+        $("#myModal").on("show.bs.modal", function (e) {
+            var id = $(e.relatedTarget).data('target-id');
+            console.log(id);
+            
+            document.getElementById('tf').setAttribute('src', `{{ asset('img/transaksi_img') }}/`+ id);
+            // $('#img_id').val(id);
+        });
+    });
+
+</script>
 @endsection
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalBuktiTransfer">Gambar Bukti Pembayaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="row justify-content-center">
+                <img id ="tf" src="" style="max-width: 300px;"/>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
