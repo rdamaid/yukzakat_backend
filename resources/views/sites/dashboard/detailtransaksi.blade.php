@@ -28,7 +28,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Rp. {{$transaction->nominal}}</td>
+                                            <td>Rp. {{number_format($transaction->nominal)}}</td>
                                             <td>{{$transaction->jenis}}</td>
                                             <td>{{$transaction->created_at}}</td>
                                             @if ($transaction->status == 0)

@@ -318,7 +318,7 @@ a {
 .sidebar {
     background: #ffffff;
     padding-top: 30px;
-    width: 90%;
+    width: 110%;
     max-height: 850px;
     border-radius: 15px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
@@ -326,13 +326,14 @@ a {
 
 .sidebar .profile-img {
     object-fit: cover;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 100px;
     margin-bottom: 10px;
 }
 
 .sidebar h4 {
+    font-size: 14px;
     color: #000000;
     margin-top: 0;
     margin-bottom: 20px;
@@ -344,11 +345,12 @@ a {
     width: 100%;
     line-height: 60px;
     text-decoration: none;
-    padding-left: 40px;
+    padding-left: 7px;
     box-sizing: border-box;
     transition: 0.5s;
     transition-property: background;
-    border-bottom: 1px solid rgba(56, 56, 56, 0.1);
+    border-bottom: 1px solid rgba(241, 13, 13, 0.1);
+    font-size: 12px;
 }
 
 .sidebar a:hover {
@@ -360,42 +362,64 @@ a {
 }
 
 .sidebar i {
-    padding-right: 10px;
+    padding-right: 3px;
+    font-size: 12px;
 }
 
 .content {
     background: #ffffff;
     padding: 50px 50px;
     width: 100%;
-    max-height: 850px;
+    max-height: 950px;
     border-radius: 15px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 }
 
 .profil-title h1 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
+    margin-top: -20px;
+    margin-bottom: -20px;
 }
 
 .transaksi-title h1 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .profile-pic {
     object-fit: cover;
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
     border-radius: 100px;
+    padding-top: 0;
     /* margin-left: -320px; */
 }
 
 .list-profil {
-    padding: 10px 30px;
+    padding: 10px 40px;
+    font-size: 14px;
+    /* margin-bottom: -20px !important; */
 }
 
-table th {
-    width: 40%;
+.list-profil form {
+    padding-top: 30px;
+    font-size: 10px;
+}
+
+.list-profil h6 {
+    font-size: 14px;
+}
+
+.list-profil .btn {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+table th,
+td {
+    width: 100%;
+    font-size: 12px;
 }
 
 .table-responsive table th {
@@ -450,6 +474,10 @@ table th {
 
 /* END REKENING */
 
+.about p {
+    padding: 0 4px;
+    text-align: justify;
+}
 
 /* Desktop Version */
 @media (min-width: 992px) {
@@ -477,7 +505,7 @@ table th {
 
     .nav-link {
         text-transform: uppercase;
-        margin-right: 20px;
+        margin-right: 40px;
         white-space: nowrap;
     }
 
@@ -600,4 +628,151 @@ table th {
     }
 
     /* END REKENING */
+
+    /* PROFIL */
+    .sidebar {
+        background: #ffffff;
+        padding-top: 30px;
+        width: 90%;
+        max-height: 850px;
+        border-radius: 15px;
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar .profile-img {
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar h4 {
+        font-size: 24px;
+        color: #000000;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .sidebar a {
+        color: #000000;
+        display: block;
+        width: 100%;
+        line-height: 60px;
+        text-decoration: none;
+        padding-left: 40px;
+        box-sizing: border-box;
+        transition: 0.5s;
+        transition-property: background;
+        border-bottom: 1px solid rgba(56, 56, 56, 0.1);
+        font-size: 16px;
+    }
+
+    .sidebar a:hover {
+        background: #f5f5f5;
+    }
+
+    .sidebar .active {
+        background: #f5f5f5;
+    }
+
+    .sidebar i {
+        padding-right: 10px;
+        font-size: 16px;
+    }
+
+    .content {
+        background: #ffffff;
+        padding: 50px 50px;
+        width: 100%;
+        max-height: 850px;
+        border-radius: 15px;
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .profil-title h1 {
+        font-weight: 700;
+        font-size: 24px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .transaksi-title h1 {
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    .profile-pic {
+        object-fit: cover;
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+        /* margin-left: -320px; */
+    }
+
+    .list-profil {
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+
+    .list-profil form {
+        padding-top: 30px;
+        font-size: 10px !important;
+    }
+
+    .list-profil h6 {
+        font-size: 14px;
+    }
+
+    .list-profil .btn {
+        margin-top: 0 !important;
+        font-size: 16px;
+    }
+
+    table th,
+    td {
+        width: 40%;
+        font-size: 16px;
+    }
+
+    .list-profil form {
+        padding-top: 30px;
+        font-size: 18px !important;
+    }
+
+    .table-responsive table th {
+        width: auto;
+        text-align: center;
+    }
+
+    .table-responsive table td {
+        text-align: center;
+    }
+
+    .sub-pic {
+        text-align: center;
+    }
+
+    .sub-pic a {
+        padding-top: 5px;
+        color: #000000;
+    }
+
+    .keluar-profile {
+        margin-top: 100%;
+    }
+
+    /* END OF PROFIL */
+
+    .about {
+        color: black;
+
+    }
+
+    .about p {
+        font-weight: 500;
+        font-size: 16px;
+        text-align: justify;
+        opacity: 1;
+    }
 }
