@@ -69,6 +69,9 @@
                                             <center>
                                                 <img src="{{asset('img/transaksi_img/'.$transaction->bukti_pembayaran)}}"
                                                     class="profile-pic mt-1" alt="profil" id="output" />
+                                                   <br>
+                                                <strong>*max file size: 2MB</strong>
+                                           
                                             </center>
                                             <div class="sub-pic">
                                                 <input required class="@error('bukti_pembayaran') is-invalid @enderror" type="file"
