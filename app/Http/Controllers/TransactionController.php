@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Exception;
-// use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Validator;
 use Auth;
 
 class TransactionController extends Controller
@@ -66,18 +66,15 @@ class TransactionController extends Controller
     public function upload_pembayaran(Request $request, $id){
       try {
         if (Auth::check()) {
-          $rules = [
-            'bukti_pembayaran.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          ];
-      
-          $message = [
-              'required' => 'The :attribute field is required.'
-          ];
-      
-          $this->validate($request, $rules, $message);
-          // $this->validate($request, [
-          //   'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          // ]);  
+          
+          $validator = Validator::make($request->all(), [
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+
+          if($validator->fails()){
+            // return back()->with('error', $validator->messages()->all()[0])->withInput();
+            return redirect()->back()->with('warning', 'Bukti Pembayaran gagal di Upload');
+          }
           
           $transaction = Transaction::find($id);
           if ($request->hasFile('bukti_pembayaran')) {
