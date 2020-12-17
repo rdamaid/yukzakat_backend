@@ -21,7 +21,7 @@
                                     <thead>
                                         <tr>
                                             <th>Total</th>
-                                            <th>Jenis Pembayaran</th>
+                                            <th>Jenis Zakat</th>
                                             <th>Tanggal</th>
                                             <th>Status Pembayaran</th>
                                         </tr>

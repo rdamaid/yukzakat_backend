@@ -17,21 +17,21 @@ class transaksiSeed extends Seeder
             [
                 'user_id'            => 2,
                 'nominal'            => 1200000,
-                'jenis'              => "Mandiri Syariah",
+                'jenis'              => "Zakat Maal",
                 'status'             => 0,
                 'created_at' => date("Y-m-d H:i:s")
             ],
             [
                 'user_id'            => 3,
                 'nominal'            => 1500000,
-                'jenis'              => "BNI Syariah",
+                'jenis'              => "Zakat Maal",
                 'status'             => 1,
                 'created_at' => date("Y-m-d H:i:s")
             ],
             [
                 'user_id'            => 3,
                 'nominal'            => 2500000,
-                'jenis'              => "Mandiri Syariah",
+                'jenis'              => "Zakat Maal",
                 'status'             => 0,
                 'created_at' => date("Y-m-d H:i:s")
             ],

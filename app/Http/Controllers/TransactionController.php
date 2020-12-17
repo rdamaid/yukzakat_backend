@@ -67,7 +67,7 @@ class TransactionController extends Controller
       try {
         if (Auth::check()) {
           $this->validate($request, [
-            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg',
           ]);  
           $transaction = Transaction::find($id);
           if ($request->hasFile('bukti_pembayaran')) {
@@ -79,7 +79,9 @@ class TransactionController extends Controller
           else {
             return redirect()->back()->with('warning', 'Bukti Pembayaran gagal di Upload');
           }
-        } 
+        } else {
+          return redirect()->back()->with('warning', 'Bukti Pembayaran gagal di Upload');
+        }
       } catch (Exception $err) {
           return $err;
       }
