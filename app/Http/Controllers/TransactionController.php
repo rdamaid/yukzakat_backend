@@ -67,7 +67,7 @@ class TransactionController extends Controller
       try {
         if (Auth::check()) {
           $this->validate($request, [
-            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);  
           $transaction = Transaction::find($id);
           if ($request->hasFile('bukti_pembayaran')) {

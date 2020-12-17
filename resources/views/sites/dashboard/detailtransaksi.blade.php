@@ -45,9 +45,12 @@
                                 </table>
                                 @if($transaction->bukti_pembayaran == 'default.jpg' && $transaction->status == 0)
                                 <div class="mt-4 mb-5">
-                                    <h6>1. Silahkan transfer pembayaran pada <strong>ATM Terdekat/Mobile Banking</strong> anda</h6>
-                                    <h6>2. Masukkan no Rek. Mandiri Syariah <strong>0160043929 a.n DKM AH-KAS</strong></h6>
-                                    <h6>3. Lakukan pembayaran sesuai jumlah yang tertera, yaitu <strong>Rp. {{$transaction->nominal}}</strong></h6>
+                                    <h6>1. Silahkan transfer pembayaran pada <strong>ATM Terdekat/Mobile
+                                            Banking</strong> anda</h6>
+                                    <h6>2. Masukkan no Rek. Mandiri Syariah <strong>0160043929 a.n DKM AH-KAS</strong>
+                                    </h6>
+                                    <h6>3. Lakukan pembayaran sesuai jumlah yang tertera, yaitu <strong>Rp.
+                                            {{$transaction->nominal}}</strong></h6>
                                     <h6>4. Setelah selesai, silahkan upload bukti pembayaran anda</h6>
                                 </div>
                                 @endif
@@ -57,7 +60,8 @@
                                 </div>
                                 @endif
                                 @if($transaction->status == 0)
-                                <form method="POST" action="{{ url('/transaksi/show/' .$transaction->id) }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ url('/transaksi/show/' .$transaction->id) }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row justify-content-center">
                                         @if($transaction->bukti_pembayaran == 'default.jpg')
@@ -67,8 +71,15 @@
                                                     class="profile-pic mt-1" alt="profil" id="output" />
                                             </center>
                                             <div class="sub-pic">
-                                                <input required type="file" name="bukti_pembayaran" onchange="loadFile(event)">
+                                                <input required class="form-input @error('bukti_pembayaran') is-invalid @enderror" type="file"
+                                                    name="bukti_pembayaran" onchange="loadFile(event)">
                                             </div>
+                                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                            @error('bukti_pembayaran')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Gagal mengupload file</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <!-- <div class="form-group col-md-6">
                                             <div class="sub-pic">
