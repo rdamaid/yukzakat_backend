@@ -71,13 +71,13 @@
                                                     class="profile-pic mt-1" alt="profil" id="output" />
                                             </center>
                                             <div class="sub-pic">
-                                                <input required class="form-input @error('bukti_pembayaran') is-invalid @enderror" type="file"
+                                                <input required class="@error('bukti_pembayaran') is-invalid @enderror" type="file"
                                                     name="bukti_pembayaran" onchange="loadFile(event)">
                                             </div>
                                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                             @error('bukti_pembayaran')
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>Gagal mengupload file</strong>
+                                                <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>

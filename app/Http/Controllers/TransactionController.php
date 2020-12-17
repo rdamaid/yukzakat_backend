@@ -66,22 +66,27 @@ class TransactionController extends Controller
     public function upload_pembayaran(Request $request, $id){
       try {
         if (Auth::check()) {
-          $this->validate($request, [
-            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-          ]);  
+          $rules = [
+            'bukti_pembayaran.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ];
+      
+          $message = [
+              'required' => 'The :attribute field is required.'
+          ];
+      
+          $this->validate($request, $rules, $message);
+          // $this->validate($request, [
+          //   'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          // ]);  
+          
           $transaction = Transaction::find($id);
           if ($request->hasFile('bukti_pembayaran')) {
             $request->file('bukti_pembayaran')->move('img/transaksi_img/', $request->file('bukti_pembayaran')->getClientOriginalName());
             $transaction->bukti_pembayaran = $request->file('bukti_pembayaran')->getClientOriginalName();
             $transaction->save();
-            return redirect('/transaksi')->with('success', 'Bukti Pembayaran Berhasil di Upload');
           } 
-          else {
-            return redirect()->back()->with('warning', 'Bukti Pembayaran gagal di Upload');
-          }
-        } else {
-          return redirect()->back()->with('warning', 'Bukti Pembayaran gagal di Upload');
-        }
+          return redirect('/transaksi')->with('success', 'Bukti Pembayaran Berhasil di Upload');
+        } 
       } catch (Exception $err) {
           return $err;
       }
